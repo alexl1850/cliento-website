@@ -799,13 +799,13 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     </div>
     <div class="nav-mid">
       <a href="#" onclick="show('home');return false">Home</a>
-      <a href="#" onclick="show('pricing');return false">Pricing</a>
+      <a href="/pricing.html">Pricing</a>
       <a href="#" onclick="show('home');goTo('vs');return false">Compare</a>
       <a href="#" onclick="show('home');goTo('features');return false">Features</a>
     </div>
     <div class="nav-right">
       <button class="btn-nav-ghost">Sign in</button>
-      <button class="btn-nav-cta" onclick="show('pricing')">Start Free →</button>
+      <a href="/pricing.html" class="btn-nav-cta" style="text-decoration:none;display:inline-flex;align-items:center">Start Free →</a>
     </div>
   </div>
 </nav>
@@ -852,7 +852,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       </div>
 
       <div class="hero-cta">
-        <button class="btn-primary-lg" onclick="show('pricing')">
+        <button class="btn-primary-lg" onclick="window.location.href='/pricing.html'">
           Start Free for 7 Days <span class="arrow">→</span>
         </button>
         <div class="hero-micro">
@@ -1050,7 +1050,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
             <div class="b6r-price">$50</div>
             <div class="b6r-period">AUD per month · 20+ tools · cancel anytime</div>
             <div class="b6r-save">💰 Save $4,000–$12,000/month vs an agency</div>
-            <button class="b6r-cta" onclick="show('pricing')">Start Free for 7 Days →</button>
+            <button class="b6r-cta" onclick="window.location.href='/pricing.html'">Start Free for 7 Days →</button>
           </div>
         </div>
       </div>
@@ -1198,7 +1198,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   <div class="cta-inner">
     <h2 class="cta-h2">Your competitors have<br>an agency. You have<br>something <em>better.</em></h2>
     <p class="cta-sub"><strong>7 days completely free.</strong> Then $50/month. Everything done for you. No agency. No retainer. No drama.</p>
-    <button class="btn-cta-amber" onclick="show('pricing')">
+    <button class="btn-cta-amber" onclick="window.location.href='/pricing.html'">
       Start My Free 7-Day Trial →
     </button>
     <div class="cta-pills">
@@ -1298,7 +1298,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       <div class="faq-item" onclick="faq(this)"><div class="faq-q">What's the Weekly Health Score? <span class="faq-arrow">▾</span></div><div class="faq-a">Every week Cliento scores your marketing out of 100 — based on what you've done in the app: website written, reviews handled, blog posts published, emails sent and more. Then it writes you a plain English report with your 3 most important priorities for that week, what's working, what needs attention, and one quick win you can do in under 15 minutes. Most people check it every Monday morning like a coffee.</div></div>
       <div class="faq-item" onclick="faq(this)"><div class="faq-q">What is the Cliento Backlink Network? <span class="faq-arrow">▾</span></div><div class="faq-a">Every Cliento member has a real website. When you mention a local member naturally in your next blog post — and they mention you in theirs — Google sees both businesses as locally trusted and boosts your rankings. Link building agencies charge $500–$2,000/month for this. In Cliento, we match you with complementary local businesses, write the mention for you so it sounds completely natural, and even draft the email to send them asking to do the same. Completely white-hat — Google actively rewards this kind of genuine local content.</div></div>
       <div class="faq-item" onclick="faq(this)"><div class="faq-q">How do I pay and is it secure? <span class="faq-arrow">▾</span></div><div class="faq-a">All payments are handled securely by Paddle, one of the world's leading payment companies. We accept all major credit and debit cards. We never see or store your card details. Australian GST is taken care of automatically.</div></div>
-      <div class="faq-item" onclick="faq(this)"><div class="faq-q">What if I want my money back? <span class="faq-arrow">▾</span></div><div class="faq-a">We offer a 30-day money-back guarantee on your first month. Just email support@cliento.com.au with the subject "Refund Request" and we'll sort it out within one business day — no questions asked. See our <a href="#" onclick="show('refund');return false">Refund Policy</a> for the full details.</div></div>
+      <div class="faq-item" onclick="faq(this)"><div class="faq-q">What if I want my money back? <span class="faq-arrow">▾</span></div><div class="faq-a">We offer a 30-day money-back guarantee on your first month. Just email support@cliento.com.au with the subject "Refund Request" and we'll sort it out within one business day — no questions asked. See our <a href="/refund.html">Refund Policy</a> for the full details.</div></div>
     </div>
   </div>
 </section>
@@ -1382,7 +1382,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
         <h4>Product</h4>
         <ul>
           <li><a href="#" onclick="show('home');return false">Home</a></li>
-          <li><a href="#" onclick="show('pricing');return false">Pricing</a></li>
+          <li><a href="/pricing.html">Pricing</a></li>
           <li><a href="#" onclick="show('home');goTo('features');return false">Features</a></li>
           <li><a href="#" onclick="show('home');goTo('vs');return false">Compare</a></li>
         </ul>
@@ -1390,16 +1390,16 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="#" onclick="show('terms');return false">Terms of Service</a></li>
-          <li><a href="#" onclick="show('privacy');return false">Privacy Policy</a></li>
-          <li><a href="#" onclick="show('refund');return false">Refund Policy</a></li>
+          <li><a href="/terms.html">Terms of Service</a></li>
+          <li><a href="/privacy.html">Privacy Policy</a></li>
+          <li><a href="/refund.html">Refund Policy</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Support</h4>
         <ul>
           <li><a href="mailto:support@cliento.com.au">support@cliento.com.au</a></li>
-          <li><a href="#" onclick="show('pricing');return false">FAQ</a></li>
+          <li><a href="/pricing.html#pricing-plans">FAQ</a></li>
         </ul>
       </div>
     </div>
