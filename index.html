@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cliento — Skip the Agency. Keep the Results.</title>
 <meta name="description" content="Everything a marketing agency does for your local business — done in 60 seconds. No retainer. No contract. No agency. $50/month.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -768,11 +771,13 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .footer-brand{grid-column:1/-1}
 }
 @media(max-width:768px){
-  nav{padding:0 20px}
-  .section{padding:64px 20px}
-  .hero{padding:100px 20px 60px}
+  nav{padding:0 16px}
+  .section{padding:56px 16px}
+  .hero{padding:90px 16px 52px}
   .steps-grid{grid-template-columns:1fr 1fr}
   .b3,.b4,.b5{grid-column:span 12}
+  .b6-inner{flex-direction:column;gap:24px}
+  .b6-right{min-width:unset;width:100%}
   .vs-head,.vs-row{grid-template-columns:1fr}
   .vs-cell-good{border-left:none;border-top:1px solid var(--borderLt)}
   .vs-head-cliento{border-left:none;border-top:1px solid var(--borderLt)}
@@ -781,10 +786,40 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   .nav-mid{display:none}
   .mock-stats{grid-template-columns:1fr 1fr}
   .mock-tools{grid-template-columns:1fr 1fr}
+  .hero-inner{grid-template-columns:1fr}
+  .hero-card{max-width:100%}
+  .hero-sub{font-size:0.95rem}
+  .bento{gap:10px}
+  .stat-inner{gap:16px}
+  .stat-val{font-size:1.8rem}
+  .steps-grid{gap:1px}
+  .step{padding:24px 18px}
+  .step-num{font-size:3.5rem}
 }
 @media(max-width:480px){
+  nav{padding:0 14px}
+  .section{padding:48px 14px}
+  .hero{padding:80px 14px 48px}
   .steps-grid{grid-template-columns:1fr}
-  .hero-h1{font-size:2.8rem}
+  .hero-h1{font-size:2.4rem}
+  .b1,.b2,.b3,.b4,.b5,.b6{grid-column:span 12}
+  .b{padding:22px}
+  .b6-inner{flex-direction:column;gap:20px}
+  .mock-stats{grid-template-columns:1fr 1fr}
+  .mock-tools{grid-template-columns:1fr}
+  .mock-customer{flex-wrap:wrap}
+  .mock-genbtn{width:100%;text-align:center;margin-left:0;margin-top:6px}
+  .pricing-wrap{grid-template-columns:1fr;gap:12px}
+  .plan{padding:28px 20px}
+  .plan-amount{font-size:3rem}
+  .cta-h2{font-size:1.8rem}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-grid .footer-col{display:none}
+  .hc-row{flex-wrap:wrap;gap:6px}
+  .hero-card{padding:20px}
+  .savings-pill{flex-wrap:wrap}
+  .stat-inner{grid-template-columns:1fr 1fr;display:grid}
+  .guarantee{flex-direction:column;gap:10px}
 }
 
 </style>
@@ -799,13 +834,13 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     </div>
     <div class="nav-mid">
       <a href="#" onclick="show('home');return false">Home</a>
-      <a href="/pricing.html">Pricing</a>
+      <a href="https://app.cliento.com.au">Pricing</a>
       <a href="#" onclick="show('home');goTo('vs');return false">Compare</a>
       <a href="#" onclick="show('home');goTo('features');return false">Features</a>
     </div>
     <div class="nav-right">
       <button class="btn-nav-ghost">Sign in</button>
-      <a href="/pricing.html" class="btn-nav-cta" style="text-decoration:none;display:inline-flex;align-items:center">Start Free →</a>
+      <a href="https://app.cliento.com.au" class="btn-nav-cta" style="text-decoration:none;display:inline-flex;align-items:center">Start Free →</a>
     </div>
   </div>
 </nav>
@@ -840,7 +875,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       </h1>
 
       <p class="hero-sub">
-        Everything a marketing agency does for your business — <strong>website, social posts, emails, ads, Google reviews, seasonal campaigns, SEO blog posts, win-back programs, referral systems, business analytics, a customer list, and a backlink network</strong> — all done for you in 60 seconds. One button. $50 a month.
+        Everything a marketing agency does for your business — <strong>website, social posts, emails, ads, Google reviews, seasonal campaigns, SEO blog posts, win-back programs, referral systems, business analytics, a customer list, and a backlink network</strong> — all done for you in 60 seconds. One button. $50 a month. Content structured to rank on <strong>Google AND ChatGPT</strong>.
       </p>
 
       <div class="savings-pill">
@@ -852,7 +887,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       </div>
 
       <div class="hero-cta">
-        <button class="btn-primary-lg" onclick="window.location.href='/pricing.html'">
+        <button class="btn-primary-lg" onclick="window.location.href='https://app.cliento.com.au'">
           Start Free for 7 Days <span class="arrow">→</span>
         </button>
         <div class="hero-micro">
@@ -871,7 +906,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       <div class="hc-row"><span class="hcr-label">Your own website, written for you</span><span class="hcr-agency">$1,500–$5,000</span><span class="hcr-green">✓ Included</span></div>
       <div class="hc-row"><span class="hcr-label">Facebook & Instagram posts every week</span><span class="hcr-agency">$500–$1,500/mo</span><span class="hcr-green">✓ Included</span></div>
       <div class="hc-row"><span class="hcr-label">Getting & replying to Google reviews</span><span class="hcr-agency">$200–$500/mo</span><span class="hcr-green">✓ Included</span></div>
-      <div class="hc-row"><span class="hcr-label">SEO blog posts that rank on Google</span><span class="hcr-agency">$300–$800 each</span><span class="hcr-green">✓ Included</span></div>
+      <div class="hc-row"><span class="hcr-label">SEO blog posts — rank on Google & ChatGPT</span><span class="hcr-agency">$300–$800 each</span><span class="hcr-green">✓ Included</span></div>
       <div class="hc-row"><span class="hcr-label">Seasonal campaigns — Christmas, EOFY...</span><span class="hcr-agency">$600–$1,200 each</span><span class="hcr-green">✓ Included</span></div>
       <div class="hc-row"><span class="hcr-label">Win-back & referral programs</span><span class="hcr-agency">$400–$800/mo</span><span class="hcr-green">✓ Included</span></div>
       <div class="hc-row"><span class="hcr-label">Backlink network + your customer list</span><span class="hcr-agency">$500–$2,000/mo</span><span class="hcr-green">✓ Included</span></div>
@@ -898,6 +933,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     <div class="ticker-item">Jargon, strategy decks, quarterly reviews</div>
     <div class="ticker-item">You chase them for revisions</div>
     <div class="ticker-item">No idea what they're actually doing</div>
+    <div class="ticker-item">Invisible on ChatGPT and AI search</div>
     <!-- duplicate for seamless loop -->
     <div class="ticker-item">Agencies charge $2,000–$5,000/month retainer</div>
     <div class="ticker-item">$1,500–$5,000 to write your website</div>
@@ -912,6 +948,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
     <div class="ticker-item">Jargon, strategy decks, quarterly reviews</div>
     <div class="ticker-item">You chase them for revisions</div>
     <div class="ticker-item">No idea what they're actually doing</div>
+    <div class="ticker-item">Invisible on ChatGPT and AI search</div>
   </div>
 </div>
 
@@ -981,7 +1018,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
         <span class="b-icon">📣</span>
         <div class="b-tag">Marketing & Content — 8 tools</div>
         <h3 class="b-title">Everything written.<br>Nothing to figure out.</h3>
-        <p class="b-desc">Your website, Facebook & Instagram posts every week, emails to your customer list, Facebook & Google ads, special offer packs, Google Business Profile posts, seasonal campaigns for Christmas / Easter / EOFY, and SEO blog posts that help you rank on Google — all written for your specific business in seconds.</p>
+        <p class="b-desc">Your website, Facebook & Instagram posts every week, emails to your customer list, Facebook & Google ads, special offer packs, Google Business Profile posts, seasonal campaigns for Christmas / Easter / EOFY, and SEO blog posts that help you rank on Google and appear in ChatGPT answers — all written for your specific business in seconds.</p>
         <div class="b-pill"><span class="bp-label">Agencies charge</span><span class="bp-old">$2,000–$6,000/mo</span><span class="bp-arrow">→</span><span class="bp-new">Included in $50/mo</span></div>
       </div>
       <div class="b b2 reveal d1">
@@ -1043,14 +1080,14 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
             <span class="b-icon">🏆</span>
             <div class="b-tag">All of the above. One price. No agency.</div>
             <h3 class="b-title">20+ tools. Every word written for you.<br>$50 a month.</h3>
-            <p class="b-desc">Marketing content. Google reviews. Your customer list. Win-back campaigns. Referral programs. Business analytics. Seasonal campaigns. SEO blog posts. A weekly health score. A backlink network. Everything a full-service agency does — done in seconds, not weeks, for $50 instead of thousands.</p>
+            <p class="b-desc">Marketing content. Google reviews. Your customer list. Win-back campaigns. Referral programs. Business analytics. Seasonal campaigns. SEO blog posts optimised for Google AND ChatGPT. A weekly health score. A backlink network. Everything a full-service agency does — done in seconds, not weeks, for $50 instead of thousands.</p>
           </div>
           <div class="b6-right">
             <div class="b6r-label">Cliento Pro — Monthly</div>
             <div class="b6r-price">$50</div>
             <div class="b6r-period">AUD per month · 20+ tools · cancel anytime</div>
             <div class="b6r-save">💰 Save $4,000–$12,000/month vs an agency</div>
-            <button class="b6r-cta" onclick="window.location.href='/pricing.html'">Start Free for 7 Days →</button>
+            <button class="b6r-cta" onclick="window.location.href='https://app.cliento.com.au'">Start Free for 7 Days →</button>
           </div>
         </div>
       </div>
@@ -1163,6 +1200,148 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   </div>
 </section>
 
+<!-- SHOPIFY SECTION ──────────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(180deg,var(--black) 0%,var(--ink2) 100%)">
+  <div class="s-inner">
+    <div class="reveal" style="text-align:center;margin-bottom:56px">
+      <div class="eyebrow eyebrow-green" style="justify-content:center">🛍️ Also built for online stores</div>
+      <h2 class="display display-white" style="max-width:700px;margin:0 auto 16px">Running a Shopify store?<br><span class="green">We've got you covered too.</span></h2>
+      <p class="lead lead-dim" style="margin:0 auto;max-width:560px;text-align:center">Cliento isn't just for local businesses. If you sell online, we write your product descriptions, emails, ads, and SEO content — and connect directly to your store.</p>
+    </div>
+    <!-- Shopify feature cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-bottom:48px">
+      <div style="background:var(--ink2);border:1px solid var(--border);border-radius:var(--rXl);padding:28px">
+        <div style="font-size:1.8em;margin-bottom:12px">📝</div>
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--w35);margin-bottom:6px">Product Descriptions</div>
+        <div style="font-weight:800;font-size:0.95em;color:var(--white);margin-bottom:8px">Write every product description in seconds</div>
+        <div style="font-size:0.83em;color:var(--w60);line-height:1.65;margin-bottom:14px">Paste a product name and key details — get a full SEO-optimised description that actually sells. Works for your entire catalogue.</div>
+        <div style="background:var(--redDim);border:1px solid rgba(255,59,59,0.2);border-radius:8px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px">
+          <span style="font-size:0.6rem;color:var(--w35);font-weight:700;text-transform:uppercase">Copywriters charge</span>
+          <span style="font-size:0.78rem;color:var(--red);text-decoration:line-through;font-weight:600">$50–$150 each</span>
+          <span style="font-size:0.7rem;color:var(--w35)">→</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:700">Included</span>
+        </div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--border);border-radius:var(--rXl);padding:28px">
+        <div style="font-size:1.8em;margin-bottom:12px">🛒</div>
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--w35);margin-bottom:6px">Abandoned Cart Emails</div>
+        <div style="font-weight:800;font-size:0.95em;color:var(--white);margin-bottom:8px">Recover customers who left without buying</div>
+        <div style="font-size:0.83em;color:var(--w60);line-height:1.65;margin-bottom:14px">A 3-email sequence that brings back customers who didn't complete their purchase. Recovers 5–15% of lost sales on average.</div>
+        <div style="background:var(--redDim);border:1px solid rgba(255,59,59,0.2);border-radius:8px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px">
+          <span style="font-size:0.6rem;color:var(--w35);font-weight:700;text-transform:uppercase">Agencies charge</span>
+          <span style="font-size:0.78rem;color:var(--red);text-decoration:line-through;font-weight:600">$400+/month</span>
+          <span style="font-size:0.7rem;color:var(--w35)">→</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:700">Included</span>
+        </div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--border);border-radius:var(--rXl);padding:28px">
+        <div style="font-size:1.8em;margin-bottom:12px">📱</div>
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--w35);margin-bottom:6px">Social & Ads</div>
+        <div style="font-weight:800;font-size:0.95em;color:var(--white);margin-bottom:8px">Content for every platform, ready to post</div>
+        <div style="font-size:0.83em;color:var(--w60);line-height:1.65;margin-bottom:14px">Instagram, TikTok and Facebook captions plus Meta and Google ad copy — written for specific products, ready to paste into Ads Manager.</div>
+        <div style="background:var(--redDim);border:1px solid rgba(255,59,59,0.2);border-radius:8px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px">
+          <span style="font-size:0.6rem;color:var(--w35);font-weight:700;text-transform:uppercase">Ad agencies charge</span>
+          <span style="font-size:0.78rem;color:var(--red);text-decoration:line-through;font-weight:600">$500–$2,000</span>
+          <span style="font-size:0.7rem;color:var(--w35)">→</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:700">Included</span>
+        </div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--border);border-radius:var(--rXl);padding:28px">
+        <div style="font-size:1.8em;margin-bottom:12px">🔍</div>
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--w35);margin-bottom:6px">Store SEO & Blog Posts</div>
+        <div style="font-weight:800;font-size:0.95em;color:var(--white);margin-bottom:8px">Get found by buyers searching Google</div>
+        <div style="font-size:0.83em;color:var(--w60);line-height:1.65;margin-bottom:14px">Finds low-competition keywords your buyers are searching for and writes the full article — ranks on Google and drives traffic to your store for months.</div>
+        <div style="background:var(--redDim);border:1px solid rgba(255,59,59,0.2);border-radius:8px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px">
+          <span style="font-size:0.6rem;color:var(--w35);font-weight:700;text-transform:uppercase">SEO agencies charge</span>
+          <span style="font-size:0.78rem;color:var(--red);text-decoration:line-through;font-weight:600">$300–$800 each</span>
+          <span style="font-size:0.7rem;color:var(--w35)">→</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:700">Included</span>
+        </div>
+      </div>
+      <div style="background:var(--ink2);border:1px solid var(--border);border-radius:var(--rXl);padding:28px">
+        <div style="font-size:1.8em;margin-bottom:12px">📊</div>
+        <div style="font-size:0.65rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--w35);margin-bottom:6px">Plain English Analytics</div>
+        <div style="font-weight:800;font-size:0.95em;color:var(--white);margin-bottom:8px">Know exactly what's working in your store</div>
+        <div style="font-size:0.83em;color:var(--w60);line-height:1.65;margin-bottom:14px">Paste your Shopify or ad numbers and get a plain English breakdown — what's performing, what's wasting money, and your top 3 actions this month.</div>
+        <div style="background:var(--redDim);border:1px solid rgba(255,59,59,0.2);border-radius:8px;padding:6px 12px;display:inline-flex;align-items:center;gap:7px">
+          <span style="font-size:0.6rem;color:var(--w35);font-weight:700;text-transform:uppercase">Consultants charge</span>
+          <span style="font-size:0.78rem;color:var(--red);text-decoration:line-through;font-weight:600">$200–$400/report</span>
+          <span style="font-size:0.7rem;color:var(--w35)">→</span>
+          <span style="font-size:0.78rem;color:var(--green);font-weight:700">Included</span>
+        </div>
+      </div>
+      <div style="background:rgba(0,232,122,0.06);border:1.5px solid rgba(0,232,122,0.2);border-radius:var(--rXl);padding:28px;display:flex;flex-direction:column;justify-content:center">
+        <div style="font-size:1.8em;margin-bottom:12px">🛍️</div>
+        <div style="font-weight:800;font-size:1em;color:var(--white);margin-bottom:8px;line-height:1.3">Shopify store owners get everything too.</div>
+        <div style="font-size:0.85em;color:var(--w60);line-height:1.65;margin-bottom:20px">All the same tools, plus a full suite built specifically for ecommerce — product copy, email flows, reviews, sale campaigns and more. One plan, $50/month.</div>
+        <button onclick="window.location.href='https://app.cliento.com.au'" style="padding:13px 20px;border-radius:10px;border:none;background:var(--green);color:var(--black);font-weight:800;font-size:0.88em;cursor:pointer;box-shadow:0 0 24px rgba(0,232,122,0.3)">
+          Start Free for 7 Days →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SEARCH SECTION ─────────────────────────────────────────── -->
+<section class="section" style="background:linear-gradient(180deg,var(--ink2) 0%,#0A0F1E 100%)">
+  <div class="s-inner">
+    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+      <div>
+        <div class="eyebrow eyebrow-green">🤖 AI Search Visibility</div>
+        <h2 class="display display-white">Get found on<br><span class="green">ChatGPT too.</span></h2>
+        <p class="lead lead-dim" style="margin:14px 0 28px">When someone asks ChatGPT "best café in Wollongong" or "who's a good plumber near me" — you want your business to be the answer. Cliento writes content that makes that happen.</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:9px;background:rgba(0,232,122,0.15);border:1px solid rgba(0,232,122,0.3);display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0">✓</div>
+            <div>
+              <div style="font-weight:800;color:var(--white);font-size:0.95em;margin-bottom:3px">Blog posts structured for AI answers</div>
+              <div style="font-size:0.82em;color:var(--w60);line-height:1.65">Cliento writes content in the exact format ChatGPT, Gemini and Perplexity pull from when answering questions about local businesses.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:9px;background:rgba(0,232,122,0.15);border:1px solid rgba(0,232,122,0.3);display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0">✓</div>
+            <div>
+              <div style="font-weight:800;color:var(--white);font-size:0.95em;margin-bottom:3px">Locally specific — the way AI searches</div>
+              <div style="font-size:0.82em;color:var(--w60);line-height:1.65">AI search rewards specificity. Every piece of content Cliento writes includes your suburb, your services, and the real details that make AI platforms trust and cite your business.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:14px;align-items:flex-start">
+            <div style="width:36px;height:36px;border-radius:9px;background:rgba(0,232,122,0.15);border:1px solid rgba(0,232,122,0.3);display:flex;align-items:center;justify-content:center;font-size:1em;flex-shrink:0">✓</div>
+            <div>
+              <div style="font-weight:800;color:var(--white);font-size:0.95em;margin-bottom:3px">Works on Google, ChatGPT, Gemini & Perplexity</div>
+              <div style="font-size:0.82em;color:var(--w60);line-height:1.65">The same content strategy that ranks on Google is now what gets you cited in AI answers. Cliento does both at once — one tool, two massive distribution channels.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <!-- Simulated ChatGPT answer UI -->
+        <div style="background:#1A1A2E;border:1px solid rgba(255,255,255,0.1);border-radius:18px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,0.4)">
+          <div style="background:rgba(255,255,255,0.04);padding:14px 18px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;align-items:center;gap:8px">
+            <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(135deg,#00E87A,#00B4D8);display:flex;align-items:center;justify-content:center;font-size:0.8em;font-weight:900;color:#000">AI</div>
+            <span style="font-size:0.78em;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em">ChatGPT</span>
+          </div>
+          <div style="padding:20px 18px">
+            <div style="font-size:0.78em;color:rgba(255,255,255,0.35);margin-bottom:10px;font-weight:600">💬 best café wollongong</div>
+            <div style="font-size:0.85em;color:rgba(255,255,255,0.82);line-height:1.75;margin-bottom:14px">
+              Based on local reviews and recent online content, <strong style="color:var(--green)">Sandy's Café in Wollongong</strong> is consistently recommended as one of the best options in the Illawarra. They're known for their eggs benny, great coffee, and friendly service — and they're open 7 days a week.
+            </div>
+            <div style="background:rgba(0,232,122,0.08);border:1px solid rgba(0,232,122,0.2);border-radius:10px;padding:12px 14px;display:flex;gap:10px;align-items:center">
+              <span style="font-size:1.1em">📍</span>
+              <div>
+                <div style="font-size:0.78em;font-weight:800;color:var(--green)">Sandy's Café</div>
+                <div style="font-size:0.72em;color:rgba(255,255,255,0.45)">sandyscafe.cliento.site · Wollongong NSW</div>
+              </div>
+            </div>
+            <div style="margin-top:12px;font-size:0.72em;color:rgba(255,255,255,0.25);line-height:1.5">Sources: sandyscafe.cliento.site, google.com/maps</div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:16px;font-size:0.78em;color:var(--w35)">Example of how Cliento content appears in AI search answers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS ─────────────────────────────────────────────── -->
 <section class="section section-light">
   <div class="s-inner">
@@ -1198,7 +1377,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   <div class="cta-inner">
     <h2 class="cta-h2">Your competitors have<br>an agency. You have<br>something <em>better.</em></h2>
     <p class="cta-sub"><strong>7 days completely free.</strong> Then $50/month. Everything done for you. No agency. No retainer. No drama.</p>
-    <button class="btn-cta-amber" onclick="window.location.href='/pricing.html'">
+    <button class="btn-cta-amber" onclick="window.location.href='https://app.cliento.com.au'">
       Start My Free 7-Day Trial →
     </button>
     <div class="cta-pills">
@@ -1231,12 +1410,13 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       <div class="plan-price"><span class="plan-currency">$</span><span class="plan-amount">0</span></div>
       <div class="plan-period">for 7 days — no card required</div>
       <div class="plan-vs"><span class="plan-vs-old">No credit card required</span><span class="plan-vs-save">✓ Seriously, nothing</span></div>
-      <button class="plan-cta" onclick="alert('Launching soon! Email support@cliento.com.au to get early access.')">Start Free Trial</button>
+      <button class="plan-cta" onclick="window.location.href='https://app.cliento.com.au'">Start Free Trial</button>
       <ul class="plan-features">
         <li><span class="fi-yes">✓</span> All 20+ tools — everything included</li>
         <li><span class="fi-yes">✓</span> Your website, posts, emails, ads</li>
         <li><span class="fi-yes">✓</span> Google review tools — all 4</li>
         <li><span class="fi-yes">✓</span> Seasonal campaigns & SEO blog posts</li>
+        <li><span class="fi-yes">✓</span> Content structured to rank on Google & ChatGPT</li>
         <li><span class="fi-yes">✓</span> Your customer list + message generator</li>
         <li><span class="fi-yes">✓</span> Win-back & referral programs</li>
         <li class="muted"><span class="fi-no">–</span> Business health score & weekly report</li>
@@ -1250,7 +1430,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
       <div class="plan-price"><span class="plan-currency">$</span><span class="plan-amount">50</span></div>
       <div class="plan-period">AUD per month · billed monthly</div>
       <div class="plan-vs"><span class="plan-vs-old">What you'd pay elsewhere: $4,000–$12,000/mo</span><span class="plan-vs-save">Save $3,950+/mo</span></div>
-      <button class="plan-cta" onclick="alert('Launching soon! Email support@cliento.com.au for early access.')">Get Started for $50/month →</button>
+      <button class="plan-cta" onclick="window.location.href='https://app.cliento.com.au'">Get Started for $50/month →</button>
       <ul class="plan-features">
         <li><span class="fi-yes">✓</span> Your website written for you</li>
         <li><span class="fi-yes">✓</span> 7 Facebook & Instagram posts every week</li>
@@ -1307,7 +1487,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
   <div class="cta-inner">
     <h2 class="cta-h2">Done waiting on<br>someone else to sort<br>your marketing?<br><em>Start today.</em></h2>
     <p class="cta-sub"><strong>7 days completely free.</strong> Then $50/month. Everything done for you. No agency. No retainer. No drama.</p>
-    <button class="btn-cta-amber" onclick="alert('Register at support@cliento.com.au for early access!')">Start My Free 7-Day Trial →</button>
+    <button class="btn-cta-amber" onclick="window.location.href='https://app.cliento.com.au'">Start My Free 7-Day Trial →</button>
     <div class="cta-pills">
       <div class="cta-pill"><span class="tick">✓</span> No credit card needed</div>
       <div class="cta-pill"><span class="tick">✓</span> No contract</div>
@@ -1382,7 +1562,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
         <h4>Product</h4>
         <ul>
           <li><a href="#" onclick="show('home');return false">Home</a></li>
-          <li><a href="/pricing.html">Pricing</a></li>
+          <li><a href="https://app.cliento.com.au">Pricing</a></li>
           <li><a href="#" onclick="show('home');goTo('features');return false">Features</a></li>
           <li><a href="#" onclick="show('home');goTo('vs');return false">Compare</a></li>
         </ul>
@@ -1399,7 +1579,7 @@ footer { background: var(--black); border-top: 1px solid var(--border); padding:
         <h4>Support</h4>
         <ul>
           <li><a href="mailto:support@cliento.com.au">support@cliento.com.au</a></li>
-          <li><a href="/pricing.html#pricing-plans">FAQ</a></li>
+          <li><a href="https://app.cliento.com.au">FAQ</a></li>
         </ul>
       </div>
     </div>
