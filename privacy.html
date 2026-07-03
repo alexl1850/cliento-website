@@ -3,83 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Cliento</title>
-<meta name="description" content="How Cliento collects, uses, and protects your information.">
+<title>Privacy Policy — Akus</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root {
-  --black:#07090E; --ink:#0D1117; --ink2:#161B27;
-  --green:#00E87A; --amber:#FF9500;
-  --white:#FFFFFF; --w90:rgba(255,255,255,0.9); --w60:rgba(255,255,255,0.6);
-  --w35:rgba(255,255,255,0.35); --w12:rgba(255,255,255,0.12); --w06:rgba(255,255,255,0.06);
-  --border:rgba(255,255,255,0.08); --r:12px; --rLg:20px;
-  --ff:'Inter', system-ui, -apple-system, sans-serif;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px}
-body{font-family:var(--ff);background:var(--black);color:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
-a{color:var(--green);text-decoration:none}
-a:hover{text-decoration:underline}
-
-#nav{position:sticky;top:0;z-index:1000;background:rgba(7,9,14,0.92);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
-.nav-inner{max-width:1160px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between;height:66px}
-.logo{font-size:1.4rem;font-weight:900;letter-spacing:-0.04em;display:flex;align-items:center;gap:2px}
-.logo .bolt{color:var(--green)}
-.logo .dot{color:var(--amber)}
-.nav-mid{display:flex;gap:2px}
-.nav-mid a{padding:8px 16px;border-radius:8px;font-size:0.875rem;color:var(--w60);font-weight:500;transition:all 0.15s}
-.nav-mid a:hover{color:var(--white);background:var(--w06);text-decoration:none}
-.btn-nav-cta{padding:10px 22px;border-radius:9px;font-size:0.875rem;font-weight:800;background:var(--green);color:var(--black);box-shadow:0 0 28px rgba(0,232,122,0.25)}
-
-.legal-hero{background:var(--ink2);padding:64px 32px 48px;text-align:center;border-bottom:1px solid var(--border)}
-.legal-hero h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-0.04em;color:var(--white)}
-.legal-hero p{color:var(--w35);margin-top:8px;font-size:0.875rem}
-.legal-body{max-width:760px;margin:0 auto;padding:56px 32px 80px}
-.legal-body h2{font-size:1.1rem;font-weight:800;color:var(--white);margin:36px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--border)}
-.legal-body h2:first-of-type{margin-top:0}
-.legal-body p{font-size:0.9rem;color:var(--w60);line-height:1.8;margin-bottom:12px}
-.legal-body ul{padding-left:18px;margin-bottom:12px}
-.legal-body ul li{font-size:0.9rem;color:var(--w60);line-height:1.8;margin-bottom:5px}
-.legal-notice{background:rgba(255,149,0,0.07);border:1px solid rgba(255,149,0,0.18);border-radius:var(--r);padding:16px 20px;margin-bottom:28px}
-.legal-notice p{color:rgba(255,149,0,0.9)!important;margin:0!important}
-
-footer{background:var(--black);border-top:1px solid var(--border);padding:40px 32px 32px;text-align:center}
-footer p{font-size:0.78rem;color:rgba(255,255,255,0.3)}
-footer .back{display:inline-block;margin-top:14px;font-size:0.85rem;color:var(--green);font-weight:600}
-@media(max-width:640px){.nav-mid{display:none}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#03050A;color:#E0F2FE;-webkit-font-smoothing:antialiased}
+nav{padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(3,5,10,0.9);border-bottom:1px solid rgba(56,189,248,0.1);position:sticky;top:0;z-index:100}
+.logo{font-size:1.2rem;font-weight:900;letter-spacing:-0.04em;color:#fff}.logo span{color:#38BDF8}
+.back{font-size:0.85rem;color:#38BDF8;font-weight:600;text-decoration:none}
+.wrap{max-width:720px;margin:0 auto;padding:60px 24px 100px}
+h1{font-size:2.2rem;font-weight:900;letter-spacing:-0.04em;color:#fff;margin-bottom:8px}
+.date{font-size:0.82rem;color:rgba(224,242,254,0.4);margin-bottom:48px}
+h2{font-size:1.1rem;font-weight:700;color:#38BDF8;margin:36px 0 10px}
+p{font-size:0.92rem;color:rgba(224,242,254,0.75);line-height:1.8;margin-bottom:14px}
+ul{padding-left:20px;margin-bottom:14px}
+li{font-size:0.92rem;color:rgba(224,242,254,0.75);line-height:1.8;margin-bottom:4px}
+a{color:#38BDF8}
+footer{text-align:center;padding:32px;font-size:0.78rem;color:rgba(255,255,255,0.2);border-top:1px solid rgba(255,255,255,0.05)}
 </style>
 </head>
 <body>
-
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo"><span class="bolt">⚡</span>Cliento<span class="dot">.</span></a>
-    <div class="nav-mid">
-      <a href="/">Home</a>
-      <a href="/#pricing">Pricing</a>
-    </div>
-    <a href="/#pricing" class="btn-nav-cta">Start Free →</a>
-  </div>
+<nav>
+  <div class="logo"><span>⚡</span>Akus</div>
+  <a href="/" class="back">← Back to home</a>
 </nav>
-<div class="legal-hero"><h1>Privacy Policy</h1><p>Last updated: 29 June 2026</p></div>
-<div class="legal-body">
-  <div class="legal-notice"><p><strong>Plain English:</strong> We only collect what we need to run your account. We never sell your information to anyone. You can ask us to delete everything at any time. We follow the Australian Privacy Act 1988.</p></div>
-  <h2>1. Who This Applies To</h2><p>AKUS Digital Pty Ltd operates Cliento at cliento.com.au. This policy explains how we look after your personal information under the Australian Privacy Act 1988 and Australian Privacy Principles.</p>
-  <h2>2. What Information We Collect</h2><p><strong>Account details:</strong> Your name, email address, and password (stored securely — we can't read your password) when you sign up.<br><strong>Business information:</strong> Your business name, what you do, your suburb, and a description — used only to create your marketing content.<br><strong>Payment information:</strong> We never see or store your card details. All payments go through Paddle directly.<br><strong>Usage information:</strong> How you use the platform, your IP address, browser type — used to improve Cliento.</p>
-  <h2>3. How We Use Your Information</h2><p>To create your account, provide the service, process payments, send you account-related emails, and improve Cliento. We only send marketing emails with your permission and you can unsubscribe any time.</p>
-  <h2>4. Who We Share It With</h2><p>We never sell your information. We only share what's necessary to run the service — with Anthropic (the AI that powers the content), Paddle (who handles payments), and our hosting provider. All of them are required to protect your data.</p>
-  <h2>5. How We Keep It Safe</h2><p>Your information is stored on secure servers, encrypted when sent over the internet (HTTPS), and encrypted when stored. If a serious data breach ever occurs, we will tell you and the Office of the Australian Information Commissioner as required by law.</p>
-  <h2>6. Your Rights</h2><p>You can ask us to show you, correct, or delete your personal information at any time. Email privacy@cliento.com.au and we'll respond within 30 days. If you're not happy with how we've handled things, you can also complain to the <a href="https://www.oaic.gov.au" target="_blank">Office of the Australian Information Commissioner</a>.</p>
-  <h2>7. How Long We Keep It</h2><p>We keep your information while your account is active and for up to 7 years after you close it, as required by law.</p>
-  <h2>8. International Transfers</h2><p>Some of our providers — including Anthropic, who powers the AI — operate outside Australia. We take reasonable steps to make sure your information is protected to the same standard required under Australian law.</p>
-  <h2>9. Contact</h2><p><strong>Privacy questions:</strong> privacy@cliento.com.au · <strong>OAIC complaints:</strong> oaic.gov.au</p>
+<div class="wrap">
+  <h1>Privacy Policy</h1>
+  <div class="date">Last updated: 4 July 2026</div>
+
+  <p>Akus ("we", "us", "our") is operated by AKUS Digital (ABN registered, Wollongong NSW, Australia). We are committed to protecting your privacy and handling your personal information in accordance with the Australian Privacy Act 1988 and the Australian Privacy Principles (APPs).</p>
+
+  <h2>1. Information We Collect</h2>
+  <p>We collect information you provide when creating an account and using our service, including:</p>
+  <ul>
+    <li>Name, email address, and business details (business name, suburb, description, phone number)</li>
+    <li>Content you generate using our tools (social posts, emails, blog posts, website content)</li>
+    <li>Payment information processed securely through our payment provider — we do not store card details</li>
+    <li>Usage data including which tools you use and how often</li>
+    <li>Files you upload such as logos and photos for your website</li>
+  </ul>
+
+  <h2>2. How We Use Your Information</h2>
+  <p>We use your information to:</p>
+  <ul>
+    <li>Provide and personalise the Akus service to your business</li>
+    <li>Generate marketing content specific to your business name, location, and services</li>
+    <li>Process your subscription and send billing-related communications</li>
+    <li>Send service updates and support communications</li>
+    <li>Improve our AI models and product features</li>
+  </ul>
+  <p>We do not sell your personal information to third parties.</p>
+
+  <h2>3. AI Content Generation</h2>
+  <p>Akus uses Claude (by Anthropic) to generate marketing content. The business information you provide (name, suburb, services, description) is sent to Anthropic's API to generate personalised content. Anthropic's privacy policy applies to this processing. We do not use your content to train AI models without your consent.</p>
+
+  <h2>4. Data Storage</h2>
+  <p>Your account data is stored securely using Supabase (hosted on AWS in the Asia Pacific region). Uploaded files (logos, photos) are stored in Supabase Storage. Websites we build and publish on your behalf are hosted on Vercel's global network.</p>
+
+  <h2>5. Sharing Your Information</h2>
+  <p>We share your information only with the service providers necessary to deliver Akus, including:</p>
+  <ul>
+    <li>Anthropic — for AI content generation</li>
+    <li>Supabase — for database and file storage</li>
+    <li>Vercel — for website hosting and deployment</li>
+    <li>Our payment processor — for subscription billing</li>
+  </ul>
+  <p>All providers are bound by appropriate data processing agreements.</p>
+
+  <h2>6. Your Rights</h2>
+  <p>Under Australian privacy law, you have the right to:</p>
+  <ul>
+    <li>Access the personal information we hold about you</li>
+    <li>Request correction of inaccurate information</li>
+    <li>Request deletion of your account and associated data</li>
+    <li>Opt out of marketing communications</li>
+  </ul>
+  <p>To exercise these rights, email us at <a href="mailto:support@akus.com.au">support@akus.com.au</a>.</p>
+
+  <h2>7. Data Retention</h2>
+  <p>We retain your account data for as long as your subscription is active. If you cancel, we retain your data for 30 days before permanent deletion, giving you time to export anything you need. You can request immediate deletion by emailing us.</p>
+
+  <h2>8. Security</h2>
+  <p>We use industry-standard security measures including encrypted connections (HTTPS), secure authentication, and access controls. However, no internet service is 100% secure and we cannot guarantee absolute security.</p>
+
+  <h2>9. Cookies</h2>
+  <p>We use essential cookies for authentication and session management. We do not use advertising or tracking cookies.</p>
+
+  <h2>10. Contact Us</h2>
+  <p>For any privacy questions or concerns, contact us at <a href="mailto:support@akus.com.au">support@akus.com.au</a>. We will respond within 5 business days.</p>
 </div>
-
-<footer>
-  <p>© 2026 AKUS Digital Pty Ltd · ABN to be provided · All rights reserved</p>
-  <a href="/" class="back">← Back to cliento.com.au</a>
-</footer>
-
+<footer>© 2026 Akus · AKUS Digital · Wollongong NSW Australia · <a href="mailto:support@akus.com.au">support@akus.com.au</a></footer>
 </body>
 </html>
