@@ -741,80 +741,33 @@ async function runDemo() {
     return;
   }
 
-  // Hide input, show building
+  // Hide input, show building animation
   document.getElementById('demoBox').style.display = 'none';
   document.getElementById('heroFine').style.display = 'none';
   document.getElementById('demoBuilding').style.display = 'block';
 
-  const bar    = document.getElementById('demoBar');
-  const step1  = document.getElementById('step1');
-  const step2  = document.getElementById('step2');
-  const step3  = document.getElementById('step3');
+  const bar   = document.getElementById('demoBar');
+  const step1 = document.getElementById('step1');
+  const step2 = document.getElementById('step2');
+  const step3 = document.getElementById('step3');
 
-  // Animate progress
-  bar.style.width = '15%';
-  await sleep(800);
+  // Animate progress then redirect to app
+  bar.style.width = '20%';
+  await sleep(700);
   step1.classList.add('done'); step1.classList.remove('active');
   step2.classList.add('active');
-  bar.style.width = '40%';
-
-  // Call the build-website API
-  let siteUrl = '';
-  try {
-    const res = await fetch('https://app.akus.com.au/api/build-website', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        intake: {
-          biz_name:     biz,
-          owner_name:   biz,
-          base_suburb:  suburb,
-          service_area: suburb + ' and surrounds',
-          phone:        '',
-          email:        '',
-          years:        'Local business',
-          services:     bizType,
-          menu:         '',
-          difference:   'Quality service and a genuine passion for what we do',
-          customer:     'Locals in ' + suburb,
-          awards:       '',
-          palette:      'slate',
-          logo_url:     '',
-          photo_urls:   [],
-          testimonial_1:'',
-          fb:'', ig:'', tiktok:'',
-          hours:        '',
-          address:      '',
-          special_notes:'',
-        }
-      })
-    });
-    const d = await res.json();
-    siteUrl = d.url || '';
-  } catch(e) {
-    siteUrl = '';
-  }
-
-  await sleep(600);
+  bar.style.width = '55%';
+  await sleep(700);
   step2.classList.add('done'); step2.classList.remove('active');
   step3.classList.add('active');
-  bar.style.width = '85%';
-  await sleep(800);
+  bar.style.width = '90%';
+  await sleep(500);
   bar.style.width = '100%';
-  await sleep(400);
+  await sleep(300);
 
-  // Show result
-  document.getElementById('demoBuilding').style.display = 'none';
-  document.getElementById('demoResult').style.display   = 'block';
-
-  if (siteUrl) {
-    document.getElementById('demoUrl').textContent    = siteUrl;
-    document.getElementById('demoUrlBar').textContent = siteUrl;
-    document.getElementById('demoOpenBtn').href       = siteUrl;
-  } else {
-    document.getElementById('demoUrl').textContent = 'Site built! Sign up to save and publish it.';
-    document.getElementById('demoOpenBtn').style.display = 'none';
-  }
+  // Redirect to app with params — app auto-builds the site after signup
+  const params = new URLSearchParams({ demo: '1', biz, suburb, type: bizType });
+  window.location.href = 'https://app.akus.com.au?' + params.toString();
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
