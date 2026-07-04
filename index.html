@@ -173,11 +173,21 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 
 /* ── INSTANT DEMO ────────────────────────────────────────────────────────── */
 .demo-box{background:rgba(255,255,255,0.04);border:1px solid rgba(56,189,248,0.25);border-radius:20px;padding:28px;max-width:640px;margin:0 auto 16px;text-align:left}
-.demo-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.demo-inputs input,.demo-inputs select{padding:13px 16px;borderRadius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;transition:border-color 0.2s;border-radius:10px}
-.demo-inputs select{grid-column:1/-1;appearance:none;-webkit-appearance:none;cursor:pointer}
-.demo-inputs input::placeholder{color:rgba(255,255,255,0.3)}
-.demo-inputs input:focus,.demo-inputs select:focus{border-color:rgba(56,189,248,0.5)}
+.demo-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.demo-inputs input{padding:13px 16px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;transition:border-color 0.2s;border-radius:10px}
+.demo-inputs input::placeholder{color:rgba(255,255,255,0.35)}
+.demo-inputs input:focus{border-color:rgba(56,189,248,0.6);background:rgba(255,255,255,0.1)}
+/* Custom dropdown */
+.demo-select-wrap{position:relative;margin-bottom:10px}
+.demo-select-btn{width:100%;padding:13px 16px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;font-family:inherit;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.2s;text-align:left}
+.demo-select-btn:hover{border-color:rgba(56,189,248,0.5);background:rgba(255,255,255,0.1)}
+.demo-select-arrow{font-size:0.8rem;opacity:0.6;transition:transform 0.2s}
+.demo-select-options{position:absolute;top:calc(100% + 6px);left:0;right:0;background:#0B1628;border:1px solid rgba(56,189,248,0.3);border-radius:12px;z-index:100;max-height:280px;overflow-y:auto;box-shadow:0 16px 40px rgba(0,0,0,0.4)}
+.demo-option{padding:11px 16px;font-size:0.88rem;color:rgba(255,255,255,0.85);cursor:pointer;transition:background 0.15s}
+.demo-option:hover{background:rgba(56,189,248,0.15);color:#fff}
+.demo-option.selected{background:rgba(56,189,248,0.1);color:#38BDF8;font-weight:600}
+.demo-option:first-child{border-radius:12px 12px 0 0}
+.demo-option:last-child{border-radius:0 0 12px 12px}
 .demo-btn{width:100%;padding:16px;border-radius:12px;border:none;background:var(--sky);color:#03050A;font-weight:900;font-size:1.05rem;cursor:pointer;font-family:inherit;transition:all 0.2s;letter-spacing:-0.02em}
 .demo-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(56,189,248,0.4)}
 .demo-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
@@ -301,18 +311,42 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
       <div class="demo-inputs">
         <input id="demoBiz" type="text" placeholder="Business name (e.g. Sandy's Café)" maxlength="60" autocomplete="off"/>
         <input id="demoSuburb" type="text" placeholder="Suburb (e.g. Wollongong NSW)" maxlength="40" autocomplete="off"/>
-        <select id="demoBizType">
-          <option value="café">☕ Café / Restaurant</option>
-          <option value="plumber">🔧 Plumber / Tradie</option>
-          <option value="hair salon">✂️ Hair Salon / Beauty</option>
-          <option value="physio">💪 Physio / Health</option>
-          <option value="accountant">📊 Accountant / Finance</option>
-          <option value="landscaper">🌿 Landscaper / Garden</option>
-          <option value="real estate">🏠 Real Estate</option>
-          <option value="retail shop">🛍️ Retail Shop</option>
-          <option value="local business" selected>🏪 Other Local Business</option>
-        </select>
       </div>
+      <!-- Custom dropdown -->
+      <div class="demo-select-wrap" id="demoSelectWrap">
+        <button class="demo-select-btn" onclick="toggleDropdown(event)" type="button">
+          <span id="demoSelectedLabel">🏪 Other Local Business</span>
+          <span class="demo-select-arrow">▾</span>
+        </button>
+        <div class="demo-select-options" id="demoSelectOptions" style="display:none">
+          <div class="demo-option" onclick="selectType('café','☕ Café / Restaurant')">☕ Café / Restaurant</div>
+          <div class="demo-option" onclick="selectType('bakery','🥖 Bakery')">🥖 Bakery</div>
+          <div class="demo-option" onclick="selectType('restaurant','🍽️ Restaurant / Bistro')">🍽️ Restaurant / Bistro</div>
+          <div class="demo-option" onclick="selectType('pizza burger takeaway','🍕 Takeaway / Fast Food')">🍕 Takeaway / Fast Food</div>
+          <div class="demo-option" onclick="selectType('bar pub brewery','🍺 Bar / Pub')">🍺 Bar / Pub</div>
+          <div class="demo-option" onclick="selectType('butcher meat deli','🥩 Butcher / Deli')">🥩 Butcher / Deli</div>
+          <div class="demo-option" onclick="selectType('hair salon barber','✂️ Hair Salon / Barber')">✂️ Hair Salon / Barber</div>
+          <div class="demo-option" onclick="selectType('beauty spa nail massage','💅 Beauty / Spa / Nails')">💅 Beauty / Spa / Nails</div>
+          <div class="demo-option" onclick="selectType('plumber plumbing','🔧 Plumber')">🔧 Plumber</div>
+          <div class="demo-option" onclick="selectType('electrician electrical','⚡ Electrician')">⚡ Electrician</div>
+          <div class="demo-option" onclick="selectType('builder construction renovation','🏗️ Builder / Renovator')">🏗️ Builder / Renovator</div>
+          <div class="demo-option" onclick="selectType('landscaper garden lawn','🌿 Landscaper / Gardener')">🌿 Landscaper / Gardener</div>
+          <div class="demo-option" onclick="selectType('cleaner cleaning','🧹 Cleaning Service')">🧹 Cleaning Service</div>
+          <div class="demo-option" onclick="selectType('mechanic auto car','🚗 Mechanic / Auto')">🚗 Mechanic / Auto</div>
+          <div class="demo-option" onclick="selectType('gym fitness personal trainer','💪 Gym / Personal Trainer')">💪 Gym / Personal Trainer</div>
+          <div class="demo-option" onclick="selectType('yoga pilates wellness','🧘 Yoga / Pilates')">🧘 Yoga / Pilates</div>
+          <div class="demo-option" onclick="selectType('physio chiro health clinic','🏥 Physio / Chiro / Health')">🏥 Physio / Chiro / Health</div>
+          <div class="demo-option" onclick="selectType('dentist dental','🦷 Dentist')">🦷 Dentist</div>
+          <div class="demo-option" onclick="selectType('pet dog cat grooming vet','🐾 Pet / Grooming / Vet')">🐾 Pet / Grooming / Vet</div>
+          <div class="demo-option" onclick="selectType('florist flowers','🌸 Florist')">🌸 Florist</div>
+          <div class="demo-option" onclick="selectType('retail shop boutique','🛍️ Retail / Boutique')">🛍️ Retail / Boutique</div>
+          <div class="demo-option" onclick="selectType('real estate property agent','🏠 Real Estate')">🏠 Real Estate</div>
+          <div class="demo-option" onclick="selectType('accountant bookkeeper tax','📊 Accountant / Finance')">📊 Accountant / Finance</div>
+          <div class="demo-option" onclick="selectType('childcare daycare kindy','👶 Childcare / Kindy')">👶 Childcare / Kindy</div>
+          <div class="demo-option selected" onclick="selectType('local business','🏪 Other Local Business')">🏪 Other Local Business</div>
+        </div>
+      </div>
+      <input type="hidden" id="demoBizType" value="local business"/>
       <button class="demo-btn" id="demoBtn" onclick="runDemo()">
         ⚡ Build my website now — free
       </button>
@@ -649,6 +683,31 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 </footer>
 
 <script>
+// ── CUSTOM DROPDOWN ───────────────────────────────────────────────────────
+function toggleDropdown(e) {
+  e.stopPropagation();
+  const opts = document.getElementById('demoSelectOptions');
+  const arrow = document.querySelector('.demo-select-arrow');
+  const isOpen = opts.style.display !== 'none';
+  opts.style.display = isOpen ? 'none' : 'block';
+  arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
+function selectType(value, label) {
+  document.getElementById('demoBizType').value = value;
+  document.getElementById('demoSelectedLabel').textContent = label;
+  document.getElementById('demoSelectOptions').style.display = 'none';
+  document.querySelector('.demo-select-arrow').style.transform = '';
+  document.querySelectorAll('.demo-option').forEach(o => o.classList.remove('selected'));
+  event.target.classList.add('selected');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', () => {
+  const opts = document.getElementById('demoSelectOptions');
+  if (opts) { opts.style.display = 'none'; document.querySelector('.demo-select-arrow').style.transform = ''; }
+});
+
 // ── SAVINGS CALCULATOR ────────────────────────────────────────────────────
 function calcUpdate() {
   const boxes = document.querySelectorAll('#calcTools input[type=checkbox]');
