@@ -307,7 +307,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     </p>
 
     <!-- INSTANT DEMO -->
-    <div class="demo-box" id="demoBox">
+    <div class="demo-box" id="demoBox" onclick="event.stopPropagation()">
       <div class="demo-inputs">
         <input id="demoBiz" type="text" placeholder="Business name (e.g. Sandy's Café)" maxlength="60" autocomplete="off"/>
         <input id="demoSuburb" type="text" placeholder="Suburb (e.g. Wollongong NSW)" maxlength="40" autocomplete="off"/>
@@ -319,31 +319,31 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
           <span class="demo-select-arrow">▾</span>
         </button>
         <div class="demo-select-options" id="demoSelectOptions" style="display:none">
-          <div class="demo-option" onclick="selectType('café','☕ Café / Restaurant')">☕ Café / Restaurant</div>
-          <div class="demo-option" onclick="selectType('bakery','🥖 Bakery')">🥖 Bakery</div>
-          <div class="demo-option" onclick="selectType('restaurant','🍽️ Restaurant / Bistro')">🍽️ Restaurant / Bistro</div>
-          <div class="demo-option" onclick="selectType('pizza burger takeaway','🍕 Takeaway / Fast Food')">🍕 Takeaway / Fast Food</div>
-          <div class="demo-option" onclick="selectType('bar pub brewery','🍺 Bar / Pub')">🍺 Bar / Pub</div>
-          <div class="demo-option" onclick="selectType('butcher meat deli','🥩 Butcher / Deli')">🥩 Butcher / Deli</div>
-          <div class="demo-option" onclick="selectType('hair salon barber','✂️ Hair Salon / Barber')">✂️ Hair Salon / Barber</div>
-          <div class="demo-option" onclick="selectType('beauty spa nail massage','💅 Beauty / Spa / Nails')">💅 Beauty / Spa / Nails</div>
-          <div class="demo-option" onclick="selectType('plumber plumbing','🔧 Plumber')">🔧 Plumber</div>
-          <div class="demo-option" onclick="selectType('electrician electrical','⚡ Electrician')">⚡ Electrician</div>
-          <div class="demo-option" onclick="selectType('builder construction renovation','🏗️ Builder / Renovator')">🏗️ Builder / Renovator</div>
-          <div class="demo-option" onclick="selectType('landscaper garden lawn','🌿 Landscaper / Gardener')">🌿 Landscaper / Gardener</div>
-          <div class="demo-option" onclick="selectType('cleaner cleaning','🧹 Cleaning Service')">🧹 Cleaning Service</div>
-          <div class="demo-option" onclick="selectType('mechanic auto car','🚗 Mechanic / Auto')">🚗 Mechanic / Auto</div>
-          <div class="demo-option" onclick="selectType('gym fitness personal trainer','💪 Gym / Personal Trainer')">💪 Gym / Personal Trainer</div>
-          <div class="demo-option" onclick="selectType('yoga pilates wellness','🧘 Yoga / Pilates')">🧘 Yoga / Pilates</div>
-          <div class="demo-option" onclick="selectType('physio chiro health clinic','🏥 Physio / Chiro / Health')">🏥 Physio / Chiro / Health</div>
-          <div class="demo-option" onclick="selectType('dentist dental','🦷 Dentist')">🦷 Dentist</div>
-          <div class="demo-option" onclick="selectType('pet dog cat grooming vet','🐾 Pet / Grooming / Vet')">🐾 Pet / Grooming / Vet</div>
-          <div class="demo-option" onclick="selectType('florist flowers','🌸 Florist')">🌸 Florist</div>
-          <div class="demo-option" onclick="selectType('retail shop boutique','🛍️ Retail / Boutique')">🛍️ Retail / Boutique</div>
-          <div class="demo-option" onclick="selectType('real estate property agent','🏠 Real Estate')">🏠 Real Estate</div>
-          <div class="demo-option" onclick="selectType('accountant bookkeeper tax','📊 Accountant / Finance')">📊 Accountant / Finance</div>
-          <div class="demo-option" onclick="selectType('childcare daycare kindy','👶 Childcare / Kindy')">👶 Childcare / Kindy</div>
-          <div class="demo-option selected" onclick="selectType('local business','🏪 Other Local Business')">🏪 Other Local Business</div>
+          <div class="demo-option" onclick="selectType('café','☕ Café / Restaurant',event)">☕ Café / Restaurant</div>
+          <div class="demo-option" onclick="selectType('bakery','🥖 Bakery',event)">🥖 Bakery</div>
+          <div class="demo-option" onclick="selectType('restaurant','🍽️ Restaurant / Bistro',event)">🍽️ Restaurant / Bistro</div>
+          <div class="demo-option" onclick="selectType('pizza burger takeaway','🍕 Takeaway / Fast Food',event)">🍕 Takeaway / Fast Food</div>
+          <div class="demo-option" onclick="selectType('bar pub brewery','🍺 Bar / Pub',event)">🍺 Bar / Pub</div>
+          <div class="demo-option" onclick="selectType('butcher meat deli','🥩 Butcher / Deli',event)">🥩 Butcher / Deli</div>
+          <div class="demo-option" onclick="selectType('hair salon barber','✂️ Hair Salon / Barber',event)">✂️ Hair Salon / Barber</div>
+          <div class="demo-option" onclick="selectType('beauty spa nail massage','💅 Beauty / Spa / Nails',event)">💅 Beauty / Spa / Nails</div>
+          <div class="demo-option" onclick="selectType('plumber plumbing','🔧 Plumber',event)">🔧 Plumber</div>
+          <div class="demo-option" onclick="selectType('electrician electrical','⚡ Electrician',event)">⚡ Electrician</div>
+          <div class="demo-option" onclick="selectType('builder construction renovation','🏗️ Builder / Renovator',event)">🏗️ Builder / Renovator</div>
+          <div class="demo-option" onclick="selectType('landscaper garden lawn','🌿 Landscaper / Gardener',event)">🌿 Landscaper / Gardener</div>
+          <div class="demo-option" onclick="selectType('cleaner cleaning','🧹 Cleaning Service',event)">🧹 Cleaning Service</div>
+          <div class="demo-option" onclick="selectType('mechanic auto car','🚗 Mechanic / Auto',event)">🚗 Mechanic / Auto</div>
+          <div class="demo-option" onclick="selectType('gym fitness personal trainer','💪 Gym / Personal Trainer',event)">💪 Gym / Personal Trainer</div>
+          <div class="demo-option" onclick="selectType('yoga pilates wellness','🧘 Yoga / Pilates',event)">🧘 Yoga / Pilates</div>
+          <div class="demo-option" onclick="selectType('physio chiro health clinic','🏥 Physio / Chiro / Health',event)">🏥 Physio / Chiro / Health</div>
+          <div class="demo-option" onclick="selectType('dentist dental','🦷 Dentist',event)">🦷 Dentist</div>
+          <div class="demo-option" onclick="selectType('pet dog cat grooming vet','🐾 Pet / Grooming / Vet',event)">🐾 Pet / Grooming / Vet</div>
+          <div class="demo-option" onclick="selectType('florist flowers','🌸 Florist',event)">🌸 Florist</div>
+          <div class="demo-option" onclick="selectType('retail shop boutique','🛍️ Retail / Boutique',event)">🛍️ Retail / Boutique</div>
+          <div class="demo-option" onclick="selectType('real estate property agent','🏠 Real Estate',event)">🏠 Real Estate</div>
+          <div class="demo-option" onclick="selectType('accountant bookkeeper tax','📊 Accountant / Finance',event)">📊 Accountant / Finance</div>
+          <div class="demo-option" onclick="selectType('childcare daycare kindy','👶 Childcare / Kindy',event)">👶 Childcare / Kindy</div>
+          <div class="demo-option selected" onclick="selectType('local business','🏪 Other Local Business',event)">🏪 Other Local Business</div>
         </div>
       </div>
       <input type="hidden" id="demoBizType" value="local business"/>
@@ -693,19 +693,23 @@ function toggleDropdown(e) {
   arrow.style.transform = isOpen ? '' : 'rotate(180deg)';
 }
 
-function selectType(value, label) {
+function selectType(value, label, e) {
+  if (e) e.stopPropagation();
   document.getElementById('demoBizType').value = value;
   document.getElementById('demoSelectedLabel').textContent = label;
   document.getElementById('demoSelectOptions').style.display = 'none';
   document.querySelector('.demo-select-arrow').style.transform = '';
   document.querySelectorAll('.demo-option').forEach(o => o.classList.remove('selected'));
-  event.target.classList.add('selected');
+  if (e && e.target) e.target.classList.add('selected');
 }
 
-// Close dropdown when clicking outside
-document.addEventListener('click', () => {
-  const opts = document.getElementById('demoSelectOptions');
-  if (opts) { opts.style.display = 'none'; document.querySelector('.demo-select-arrow').style.transform = ''; }
+// Close dropdown when clicking outside — but NOT when clicking inside demo box
+document.addEventListener('click', (e) => {
+  const wrap = document.getElementById('demoSelectWrap');
+  if (wrap && !wrap.contains(e.target)) {
+    const opts = document.getElementById('demoSelectOptions');
+    if (opts) { opts.style.display = 'none'; document.querySelector('.demo-select-arrow').style.transform = ''; }
+  }
 });
 
 // ── SAVINGS CALCULATOR ────────────────────────────────────────────────────
