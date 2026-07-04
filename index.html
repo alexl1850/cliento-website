@@ -202,6 +202,10 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .demo-dots span:nth-child(1){background:#FF5F56}.demo-dots span:nth-child(2){background:#FFBD2E}.demo-dots span:nth-child(3){background:#27C93F}
 .demo-chrome-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:0.72rem;color:#6B7280;border:1px solid #E5E7EB;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:monospace}
 .demo-screenshot{width:100%;height:300px;object-fit:cover;object-position:top;display:block}
+.demo-preview-placeholder{height:220px;background:linear-gradient(135deg,#0B1628,#1E3A5F);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px}
+.demo-preview-icon{font-size:3em}
+.demo-preview-msg{font-size:1.1rem;font-weight:800;color:#fff;text-align:center}
+.demo-preview-sub{font-size:0.82rem;color:rgba(255,255,255,0.5);text-align:center;line-height:1.6;max-width:320px}
 .demo-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .demo-open-btn{padding:12px;border-radius:10px;border:1.5px solid rgba(56,189,248,0.4);color:#38BDF8;font-weight:700;font-size:0.88rem;text-align:center;text-decoration:none;display:block;transition:all 0.15s}
 .demo-open-btn:hover{background:rgba(56,189,248,0.1)}
@@ -342,7 +346,11 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
             <div class="demo-dots"><span></span><span></span><span></span></div>
             <div class="demo-chrome-url" id="demoUrlBar"></div>
           </div>
-          <img id="demoScreenshot" class="demo-screenshot" src="" alt="Your live website preview" loading="lazy"/>
+          <div class="demo-preview-placeholder">
+            <div class="demo-preview-icon">🌐</div>
+            <div class="demo-preview-msg">Your website is live and ready</div>
+            <div class="demo-preview-sub">Click "Open my website" to see it — it's real, it's yours, it's live right now</div>
+          </div>
         </div>
         <div class="demo-cta-row">
           <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn">🌐 Open my website →</a>
@@ -741,15 +749,9 @@ async function runDemo() {
   document.getElementById('demoResult').style.display   = 'block';
 
   if (siteUrl) {
-    document.getElementById('demoUrl').textContent     = siteUrl;
-    document.getElementById('demoUrlBar').textContent  = siteUrl;
-    document.getElementById('demoOpenBtn').href        = siteUrl;
-    // Wait 8 seconds for the site to fully render before screenshotting
-    setTimeout(() => {
-      document.getElementById('demoScreenshot').src = 'https://image.thum.io/get/width/1200/crop/700/noanimate/' + siteUrl;
-    }, 8000);
-    // Show placeholder while waiting
-    document.getElementById('demoScreenshot').src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700"><rect width="1200" height="700" fill="%230B1628"/><text x="600" y="340" text-anchor="middle" font-family="system-ui" font-size="24" fill="%2338BDF8">Loading preview...</text><text x="600" y="380" text-anchor="middle" font-family="system-ui" font-size="16" fill="rgba(255,255,255,0.4)">Your site is live — click Open my website to see it now</text></svg>';
+    document.getElementById('demoUrl').textContent    = siteUrl;
+    document.getElementById('demoUrlBar').textContent = siteUrl;
+    document.getElementById('demoOpenBtn').href       = siteUrl;
   } else {
     document.getElementById('demoUrl').textContent = 'Site built! Sign up to save and publish it.';
     document.getElementById('demoOpenBtn').style.display = 'none';
