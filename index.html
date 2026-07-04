@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cliento — AI Marketing for Australian Local Business</title>
+<title>Akus — AI Marketing for Australian Local Business</title>
 <meta name="description" content="Everything a marketing agency does for your business — website, social posts, emails, SEO, Google reviews, blog posts and more — done in 60 seconds. $50/month. No lock-in.">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -171,7 +171,80 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .footer-links a:hover{color:rgba(255,255,255,0.5)}
 .footer-right{font-size:0.72rem;color:rgba(255,255,255,0.2)}
 
-/* ── Responsive ─────────────────────────────────────────────────────────── */
+/* ── INSTANT DEMO ────────────────────────────────────────────────────────── */
+.demo-box{background:rgba(255,255,255,0.04);border:1px solid rgba(56,189,248,0.25);border-radius:20px;padding:28px;max-width:640px;margin:0 auto 16px;text-align:left}
+.demo-inputs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.demo-inputs input,.demo-inputs select{padding:13px 16px;borderRadius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.06);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;transition:border-color 0.2s;border-radius:10px}
+.demo-inputs select{grid-column:1/-1;appearance:none;-webkit-appearance:none;cursor:pointer}
+.demo-inputs input::placeholder{color:rgba(255,255,255,0.3)}
+.demo-inputs input:focus,.demo-inputs select:focus{border-color:rgba(56,189,248,0.5)}
+.demo-btn{width:100%;padding:16px;border-radius:12px;border:none;background:var(--sky);color:#03050A;font-weight:900;font-size:1.05rem;cursor:pointer;font-family:inherit;transition:all 0.2s;letter-spacing:-0.02em}
+.demo-btn:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(56,189,248,0.4)}
+.demo-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+.demo-fine{font-size:0.75rem;color:var(--muted);text-align:center;margin-top:10px}
+.demo-building{max-width:640px;margin:0 auto 16px}
+.demo-progress-wrap{background:rgba(255,255,255,0.04);border:1px solid rgba(56,189,248,0.2);border-radius:16px;padding:24px}
+.demo-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.demo-step{font-size:0.9rem;color:rgba(255,255,255,0.3);transition:color 0.3s;padding:6px 0}
+.demo-step.active{color:#fff;font-weight:700}
+.demo-step.done{color:rgba(56,189,248,0.8)}
+.demo-bar-wrap{background:rgba(255,255,255,0.08);border-radius:99px;height:4px;overflow:hidden}
+.demo-bar{height:100%;background:linear-gradient(90deg,#38BDF8,#16A34A);border-radius:99px;width:0%;transition:width 0.5s ease}
+.demo-result{max-width:640px;margin:0 auto 16px}
+.demo-success{background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.3);border-radius:20px;padding:24px;text-align:left}
+.demo-success-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.demo-success-icon{font-size:2em;flex-shrink:0}
+.demo-success-title{font-weight:800;color:#fff;font-size:1em;margin-bottom:4px}
+.demo-success-url{font-size:0.78rem;color:rgba(56,189,248,0.8);word-break:break-all}
+.demo-preview-chrome{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
+.demo-chrome-bar{background:#F1F3F4;padding:8px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E5E7EB}
+.demo-dots{display:flex;gap:5px}.demo-dots span{width:9px;height:9px;border-radius:50%;background:#ddd}
+.demo-dots span:nth-child(1){background:#FF5F56}.demo-dots span:nth-child(2){background:#FFBD2E}.demo-dots span:nth-child(3){background:#27C93F}
+.demo-chrome-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:0.72rem;color:#6B7280;border:1px solid #E5E7EB;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:monospace}
+.demo-screenshot{width:100%;height:300px;object-fit:cover;object-position:top;display:block}
+.demo-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.demo-open-btn{padding:12px;border-radius:10px;border:1.5px solid rgba(56,189,248,0.4);color:#38BDF8;font-weight:700;font-size:0.88rem;text-align:center;text-decoration:none;display:block;transition:all 0.15s}
+.demo-open-btn:hover{background:rgba(56,189,248,0.1)}
+.demo-signup-btn{padding:12px;border-radius:10px;background:var(--sky);color:#03050A;font-weight:900;font-size:0.88rem;text-align:center;text-decoration:none;display:block;transition:all 0.15s}
+.demo-signup-btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(56,189,248,0.4)}
+.demo-signup-fine{font-size:0.72rem;color:rgba(255,255,255,0.3);text-align:center}
+
+/* ── SAVINGS CALCULATOR ──────────────────────────────────────────────────── */
+.calc{padding:100px 24px;background:linear-gradient(180deg,#0A1F3D 0%,#051228 100%);text-align:center}
+.calc-inner{max-width:800px;margin:0 auto}
+.calc-card{background:rgba(255,255,255,0.03);border:1px solid rgba(56,189,248,0.15);border-radius:24px;padding:40px;margin-top:40px;text-align:left}
+.calc-tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:28px}
+.calc-tool{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);cursor:pointer;transition:all 0.15s}
+.calc-tool:hover{border-color:rgba(56,189,248,0.3);background:rgba(56,189,248,0.05)}
+.calc-tool.checked{border-color:rgba(56,189,248,0.5);background:rgba(56,189,248,0.08)}
+.calc-tool input{accent-color:#38BDF8;width:16px;height:16px;flex-shrink:0;cursor:pointer}
+.calc-tool-label{font-size:0.85rem;color:rgba(224,242,254,0.8)}
+.calc-tool-price{margin-left:auto;font-size:0.75rem;color:rgba(255,255,255,0.3);text-decoration:line-through;flex-shrink:0}
+.calc-result{background:linear-gradient(135deg,#052E16,#0D3D1A);border:1px solid rgba(34,197,94,0.3);border-radius:16px;padding:28px;text-align:center}
+.calc-saving-num{font-size:3.5rem;font-weight:900;color:#22C55E;letter-spacing:-0.05em;line-height:1}
+.calc-saving-label{font-size:0.9rem;color:rgba(255,255,255,0.5);margin-top:6px;margin-bottom:20px}
+.calc-vs{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.calc-vs-item{text-align:center}
+.calc-vs-num{font-size:1.4rem;font-weight:800;color:#fff}
+.calc-vs-label{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:2px}
+
+/* ── GUARANTEE ───────────────────────────────────────────────────────────── */
+.guarantee{padding:80px 24px;background:#03050A;text-align:center}
+.guarantee-inner{max-width:680px;margin:0 auto}
+.guarantee-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:24px 32px;margin-bottom:28px}
+.guarantee-icon{font-size:2.5em;flex-shrink:0}
+.guarantee-text{text-align:left}
+.guarantee-title{font-size:1.2rem;font-weight:900;color:#D4AF37;margin-bottom:6px}
+.guarantee-body{font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7}
+
+@media(max-width:640px){
+  .demo-inputs{grid-template-columns:1fr}
+  .demo-cta-row{grid-template-columns:1fr}
+  .calc-tools{grid-template-columns:1fr}
+  .guarantee-badge{flex-direction:column;text-align:center}
+  .guarantee-text{text-align:center}
+}
+
 @media(max-width:768px){
   nav{padding:0 16px}
   .pain-cards{grid-template-columns:1fr}
@@ -194,8 +267,8 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo"><span>⚡</span>Cliento</div>
-  <button class="nav-cta" onclick="window.location.href='https://app.cliento.com.au'">
+  <div class="nav-logo"><span>⚡</span>Akus</div>
+  <button class="nav-cta" onclick="window.location.href='https://app.akus.com.au'">
     Start Free →
   </button>
 </nav>
@@ -210,19 +283,77 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
   </div>
 
   <div class="hero-inner">
-    <div class="hero-badge">🇦🇺 Built for Australian business</div>
+    <div class="hero-badge">🇦🇺 Built for Australian business · 30-day money-back guarantee</div>
     <h1 class="hero-h1">
-      Your marketing.<br>
-      Done in <span class="sky">60 seconds.</span>
+      Watch Akus build your<br>
+      website in <span class="sky">60 seconds.</span>
     </h1>
     <p class="hero-sub">
-      Cliento gives you a <strong>real website, social posts, emails, blog posts, Google reviews, ads, and seasonal campaigns</strong> — all written specifically for your business. No agency. No waiting. No contract.
+      Type your business name and suburb below. <strong>No signup needed.</strong> Watch a real, live website get built for your business right now.
     </p>
-    <button class="hero-btn" onclick="window.location.href='https://app.cliento.com.au'">
-      Start free for 7 days →
-    </button>
-    <p class="hero-fine">
-      <strong>No credit card needed.</strong> · Cancel any time. · $50/month after trial.
+
+    <!-- INSTANT DEMO -->
+    <div class="demo-box" id="demoBox">
+      <div class="demo-inputs">
+        <input id="demoBiz" type="text" placeholder="Business name (e.g. Sandy's Café)" maxlength="60" autocomplete="off"/>
+        <input id="demoSuburb" type="text" placeholder="Suburb (e.g. Wollongong NSW)" maxlength="40" autocomplete="off"/>
+        <select id="demoBizType">
+          <option value="café">☕ Café / Restaurant</option>
+          <option value="plumber">🔧 Plumber / Tradie</option>
+          <option value="hair salon">✂️ Hair Salon / Beauty</option>
+          <option value="physio">💪 Physio / Health</option>
+          <option value="accountant">📊 Accountant / Finance</option>
+          <option value="landscaper">🌿 Landscaper / Garden</option>
+          <option value="real estate">🏠 Real Estate</option>
+          <option value="retail shop">🛍️ Retail Shop</option>
+          <option value="local business" selected>🏪 Other Local Business</option>
+        </select>
+      </div>
+      <button class="demo-btn" id="demoBtn" onclick="runDemo()">
+        ⚡ Build my website now — free
+      </button>
+      <p class="demo-fine">No signup. No credit card. Yours in 60 seconds.</p>
+    </div>
+
+    <!-- DEMO BUILDING STATE -->
+    <div class="demo-building" id="demoBuilding" style="display:none">
+      <div class="demo-progress-wrap">
+        <div class="demo-steps" id="demoSteps">
+          <div class="demo-step active" id="step1">✍️ Writing your content...</div>
+          <div class="demo-step" id="step2">🎨 Designing your layout...</div>
+          <div class="demo-step" id="step3">🚀 Publishing live...</div>
+        </div>
+        <div class="demo-bar-wrap"><div class="demo-bar" id="demoBar"></div></div>
+      </div>
+    </div>
+
+    <!-- DEMO RESULT -->
+    <div class="demo-result" id="demoResult" style="display:none">
+      <div class="demo-success">
+        <div class="demo-success-top">
+          <span class="demo-success-icon">🎉</span>
+          <div>
+            <div class="demo-success-title">Your website is live!</div>
+            <div class="demo-success-url" id="demoUrl"></div>
+          </div>
+        </div>
+        <div class="demo-preview-chrome">
+          <div class="demo-chrome-bar">
+            <div class="demo-dots"><span></span><span></span><span></span></div>
+            <div class="demo-chrome-url" id="demoUrlBar"></div>
+          </div>
+          <img id="demoScreenshot" class="demo-screenshot" src="" alt="Your live website preview" loading="lazy"/>
+        </div>
+        <div class="demo-cta-row">
+          <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn">🌐 Open my website →</a>
+          <a href="https://app.akus.com.au" class="demo-signup-btn">Save it &amp; get all 12 tools →</a>
+        </div>
+        <p class="demo-signup-fine">Sign up free · Keep this website · $50/month after 7-day trial · <strong>30-day money-back guarantee</strong></p>
+      </div>
+    </div>
+
+    <p class="hero-fine" id="heroFine">
+      <strong>30-day money-back guarantee.</strong> · No credit card for trial. · Cancel any time.
     </p>
   </div>
 
@@ -255,7 +386,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
       </div>
       <div class="pain-card">
         <div class="pain-card-num">12 months</div>
-        <div class="pain-card-label"><strong>Lock-in contracts</strong>They need you locked in. Cliento doesn't. Cancel any time.</div>
+        <div class="pain-card-label"><strong>Lock-in contracts</strong>They need you locked in. Akus doesn't. Cancel any time.</div>
       </div>
     </div>
   </div>
@@ -267,7 +398,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="what-head">
       <p class="eyebrow">The solution</p>
       <h2 class="what-h2">Everything an agency does.<br>Done while you have your coffee.</h2>
-      <p class="what-sub">Tell Cliento about your business once. Every tool is instantly personalised to you — your name, your suburb, your services.</p>
+      <p class="what-sub">Tell Akus about your business once. Every tool is instantly personalised to you — your name, your suburb, your services.</p>
     </div>
     <div class="tools-grid">
       <div class="tool-card">
@@ -349,7 +480,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 <!-- PROOF -->
 <section class="proof">
   <div class="proof-inner">
-    <h2 class="proof-h2">What Cliento members get done<br>in their first session</h2>
+    <h2 class="proof-h2">What Akus members get done<br>in their first session</h2>
     <div class="stats">
       <div class="stat">
         <div class="stat-num">60s</div>
@@ -357,7 +488,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
       </div>
       <div class="stat">
         <div class="stat-num">$11k+</div>
-        <div class="stat-label"><strong>Saved vs an agency</strong>The average Cliento member replaces over $11,000 worth of agency work in their first month.</div>
+        <div class="stat-label"><strong>Saved vs an agency</strong>The average Akus member replaces over $11,000 worth of agency work in their first month.</div>
       </div>
       <div class="stat">
         <div class="stat-num">7 tools</div>
@@ -365,7 +496,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
       </div>
     </div>
     <div class="testi">
-      <p class="testi-quote">"I've been meaning to sort out my marketing for three years. I did more in 40 minutes with Cliento than I had in all that time combined. The website alone was worth it."</p>
+      <p class="testi-quote">"I've been meaning to sort out my marketing for three years. I did more in 40 minutes with Akus than I had in all that time combined. The website alone was worth it."</p>
       <div class="testi-attr">— <strong>Sandra M.</strong>, café owner, Wollongong NSW</div>
     </div>
   </div>
@@ -380,7 +511,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="plan">
       <div class="plan-badge">Most popular</div>
       <div class="plan-price"><sup>$</sup>50<sub>/mo</sub></div>
-      <div class="plan-desc">Everything Cliento offers. No lock-in. Cancel any time.</div>
+      <div class="plan-desc">Everything Akus offers. No lock-in. Cancel any time.</div>
       <ul class="plan-features">
         <li>Real website built and published in 60 seconds</li>
         <li>Unlimited content generation — posts, emails, ads, blog posts</li>
@@ -393,7 +524,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
         <li>Works for local businesses AND Shopify stores</li>
         <li>7-day free trial — no credit card required</li>
       </ul>
-      <button class="plan-btn" onclick="window.location.href='https://app.cliento.com.au'">
+      <button class="plan-btn" onclick="window.location.href='https://app.akus.com.au'">
         Start my free 7-day trial →
       </button>
       <p class="plan-fine">No credit card needed. No lock-in. $50/month after your trial ends.</p>
@@ -407,27 +538,222 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
   <div class="cta-inner">
     <h2 class="cta-h2">Your competitors are<br>already doing this.<br><span class="sky">Are you?</span></h2>
     <p class="cta-sub">Every week without consistent marketing is a week your competitors get ahead. Start today — it takes 5 minutes to set up and you'll have more done before lunch than most businesses do in a month.</p>
-    <button class="hero-btn" onclick="window.location.href='https://app.cliento.com.au'">
+    <button class="hero-btn" onclick="window.location.href='https://app.akus.com.au'">
       Start free for 7 days →
     </button>
     <p class="hero-fine" style="margin-top:14px"><strong>No credit card.</strong> · No lock-in. · $50/month after trial.</p>
   </div>
 </section>
 
+<!-- SAVINGS CALCULATOR -->
+<section class="calc">
+  <div class="calc-inner">
+    <p class="eyebrow" style="margin-bottom:12px">Your savings</p>
+    <h2 class="what-h2" style="color:#fff">See exactly how much<br>Akus saves your business</h2>
+    <p class="what-sub">Tick the marketing tools you currently pay for or need — see your annual saving.</p>
+    <div class="calc-card">
+      <div class="calc-tools" id="calcTools">
+        <label class="calc-tool checked">
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="2500"> <span class="calc-tool-label">🌐 Website</span><span class="calc-tool-price">$2,500</span>
+        </label>
+        <label class="calc-tool checked">
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label">📱 Social media</span><span class="calc-tool-price">$500/mo</span>
+        </label>
+        <label class="calc-tool checked">
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="4800"> <span class="calc-tool-label">📧 Email marketing</span><span class="calc-tool-price">$400/mo</span>
+        </label>
+        <label class="calc-tool checked">
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label">✍️ Blog / SEO</span><span class="calc-tool-price">$500/mo</span>
+        </label>
+        <label class="calc-tool checked">
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">⭐ Google reviews</span><span class="calc-tool-price">$200/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="3600"> <span class="calc-tool-label">🎯 Ad copy</span><span class="calc-tool-price">$300/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">📍 Google Business</span><span class="calc-tool-price">$200/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="1800"> <span class="calc-tool-label">🚀 Win-back campaigns</span><span class="calc-tool-price">$150/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">🗓️ Seasonal campaigns</span><span class="calc-tool-price">$600 each</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="1200"> <span class="calc-tool-label">💚 Weekly health score</span><span class="calc-tool-price">$100/mo</span>
+        </label>
+      </div>
+      <div class="calc-result">
+        <div class="calc-saving-num" id="calcNum">$21,700</div>
+        <div class="calc-saving-label">saved per year vs hiring an agency</div>
+        <div class="calc-vs">
+          <div class="calc-vs-item">
+            <div class="calc-vs-num" id="calcAgency">$22,300</div>
+            <div class="calc-vs-label">Agency cost / year</div>
+          </div>
+          <div class="calc-vs-item" style="color:rgba(255,255,255,0.3);font-size:1.5rem;padding-top:8px">→</div>
+          <div class="calc-vs-item">
+            <div class="calc-vs-num" style="color:#38BDF8">$600</div>
+            <div class="calc-vs-label">Akus cost / year</div>
+          </div>
+        </div>
+        <a href="https://app.akus.com.au" class="demo-signup-btn" style="max-width:320px;margin:0 auto;display:block">
+          Start saving today — free for 7 days →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="guarantee-inner">
+    <p class="eyebrow" style="margin-bottom:24px">Our promise to you</p>
+    <div class="guarantee-badge">
+      <div class="guarantee-icon">🏆</div>
+      <div class="guarantee-text">
+        <div class="guarantee-title">The Akus 30-Day Money-Back Guarantee</div>
+        <div class="guarantee-body">
+          If you don't save at least $500 in marketing costs in your first 30 days — or you're not completely satisfied for any reason — we'll refund every cent. No questions. No hoops. Just email <strong>support@akus.com.au</strong> and it's done within 24 hours.<br><br>
+          We're that confident because we've seen what Akus does for businesses like yours. The risk is entirely ours.
+        </div>
+      </div>
+    </div>
+    <a href="https://app.akus.com.au" class="hero-btn" style="margin-top:8px;display:inline-flex">
+      Start free — zero risk →
+    </a>
+    <p class="hero-fine" style="margin-top:12px"><strong>30-day money-back guarantee.</strong> · No credit card for trial. · Cancel any time.</p>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span>⚡</span>Cliento</div>
+  <div class="footer-logo"><span>⚡</span>Akus</div>
   <div class="footer-links">
     <a href="/pricing.html">Pricing</a>
     <a href="/privacy.html">Privacy</a>
     <a href="/terms.html">Terms</a>
     <a href="/refund.html">Refunds</a>
-    <a href="mailto:support@cliento.com.au">support@cliento.com.au</a>
+    <a href="mailto:support@akus.com.au">support@akus.com.au</a>
   </div>
-  <div class="footer-right">© 2026 Cliento · Wollongong, NSW, Australia</div>
+  <div class="footer-right">© 2026 Akus · Wollongong, NSW, Australia</div>
 </footer>
 
 <script>
+// ── SAVINGS CALCULATOR ────────────────────────────────────────────────────
+function calcUpdate() {
+  const boxes = document.querySelectorAll('#calcTools input[type=checkbox]');
+  let agency = 0;
+  boxes.forEach(b => {
+    const label = b.closest('.calc-tool');
+    if (b.checked) {
+      agency += parseInt(b.dataset.price);
+      label.classList.add('checked');
+    } else {
+      label.classList.remove('checked');
+    }
+  });
+  const akus = 600; // $50/month x 12
+  const saving = Math.max(0, agency - akus);
+  document.getElementById('calcNum').textContent = '$' + saving.toLocaleString();
+  document.getElementById('calcAgency').textContent = '$' + agency.toLocaleString();
+}
+calcUpdate();
+
+// ── INSTANT DEMO ─────────────────────────────────────────────────────────
+async function runDemo() {
+  const biz     = document.getElementById('demoBiz').value.trim();
+  const suburb  = document.getElementById('demoSuburb').value.trim();
+  const bizType = document.getElementById('demoBizType').value;
+
+  if (!biz || !suburb) {
+    document.getElementById('demoBiz').focus();
+    document.getElementById('demoBiz').style.borderColor = '#EF4444';
+    setTimeout(()=>document.getElementById('demoBiz').style.borderColor='', 2000);
+    return;
+  }
+
+  // Hide input, show building
+  document.getElementById('demoBox').style.display = 'none';
+  document.getElementById('heroFine').style.display = 'none';
+  document.getElementById('demoBuilding').style.display = 'block';
+
+  const bar    = document.getElementById('demoBar');
+  const step1  = document.getElementById('step1');
+  const step2  = document.getElementById('step2');
+  const step3  = document.getElementById('step3');
+
+  // Animate progress
+  bar.style.width = '15%';
+  await sleep(800);
+  step1.classList.add('done'); step1.classList.remove('active');
+  step2.classList.add('active');
+  bar.style.width = '40%';
+
+  // Call the build-website API
+  let siteUrl = '';
+  try {
+    const res = await fetch('https://app.akus.com.au/api/build-website', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        intake: {
+          biz_name:     biz,
+          owner_name:   biz,
+          base_suburb:  suburb,
+          service_area: suburb + ' and surrounds',
+          phone:        '',
+          email:        '',
+          years:        'Local business',
+          services:     bizType,
+          menu:         '',
+          difference:   'Quality service and a genuine passion for what we do',
+          customer:     'Locals in ' + suburb,
+          awards:       '',
+          palette:      'slate',
+          logo_url:     '',
+          photo_urls:   [],
+          testimonial_1:'',
+          fb:'', ig:'', tiktok:'',
+          hours:        '',
+          address:      '',
+          special_notes:'',
+        }
+      })
+    });
+    const d = await res.json();
+    siteUrl = d.url || '';
+  } catch(e) {
+    siteUrl = '';
+  }
+
+  await sleep(600);
+  step2.classList.add('done'); step2.classList.remove('active');
+  step3.classList.add('active');
+  bar.style.width = '85%';
+  await sleep(800);
+  bar.style.width = '100%';
+  await sleep(400);
+
+  // Show result
+  document.getElementById('demoBuilding').style.display = 'none';
+  document.getElementById('demoResult').style.display   = 'block';
+
+  if (siteUrl) {
+    document.getElementById('demoUrl').textContent     = siteUrl;
+    document.getElementById('demoUrlBar').textContent  = siteUrl;
+    document.getElementById('demoOpenBtn').href        = siteUrl;
+    // Screenshot via thum.io
+    document.getElementById('demoScreenshot').src = 'https://image.thum.io/get/width/1200/crop/700/' + siteUrl;
+  } else {
+    document.getElementById('demoUrl').textContent = 'Site built! Sign up to save and publish it.';
+    document.getElementById('demoOpenBtn').style.display = 'none';
+  }
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
 // Smooth parallax on stars
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
@@ -437,7 +763,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // Reveal on scroll
-const reveals = document.querySelectorAll('.pain-card,.tool-card,.stat');
+const reveals = document.querySelectorAll('.pain-card,.tool-card,.stat,.calc-tool');
 const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
