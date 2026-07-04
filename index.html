@@ -744,8 +744,12 @@ async function runDemo() {
     document.getElementById('demoUrl').textContent     = siteUrl;
     document.getElementById('demoUrlBar').textContent  = siteUrl;
     document.getElementById('demoOpenBtn').href        = siteUrl;
-    // Screenshot via thum.io
-    document.getElementById('demoScreenshot').src = 'https://image.thum.io/get/width/1200/crop/700/' + siteUrl;
+    // Wait 8 seconds for the site to fully render before screenshotting
+    setTimeout(() => {
+      document.getElementById('demoScreenshot').src = 'https://image.thum.io/get/width/1200/crop/700/noanimate/' + siteUrl;
+    }, 8000);
+    // Show placeholder while waiting
+    document.getElementById('demoScreenshot').src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700"><rect width="1200" height="700" fill="%230B1628"/><text x="600" y="340" text-anchor="middle" font-family="system-ui" font-size="24" fill="%2338BDF8">Loading preview...</text><text x="600" y="380" text-anchor="middle" font-family="system-ui" font-size="16" fill="rgba(255,255,255,0.4)">Your site is live — click Open my website to see it now</text></svg>';
   } else {
     document.getElementById('demoUrl').textContent = 'Site built! Sign up to save and publish it.';
     document.getElementById('demoOpenBtn').style.display = 'none';
