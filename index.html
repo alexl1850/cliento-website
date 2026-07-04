@@ -770,8 +770,9 @@ async function runDemo() {
   await sleep(300);
 
   // Redirect to app with params — app auto-builds the site after signup
-  const params = new URLSearchParams({ demo: '1', biz, suburb, type: bizType });
-  window.location.href = 'https://app.akus.com.au?' + params.toString();
+  const params = new URLSearchParams({ demo: '1', biz: biz, suburb: suburb, type: bizType });
+  const appUrl = 'https://app.akus.com.au/?' + params.toString();
+  window.location.replace(appUrl);
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
