@@ -177,8 +177,40 @@ Return JSON:
       })
     });
     const aiData = await aiRes.json();
-    if(aiData.error) throw new Error(aiData.error.message);
-    const c = JSON.parse(aiData.content[0].text.replace(/```json|```/g,'').trim());
+    if(aiData.error) throw new Error(aiData.error.message || JSON.stringify(aiData.error));
+    
+    let c;
+    try {
+      c = JSON.parse(aiData.content[0].text.replace(/```json|```/g,'').trim());
+    } catch(parseErr) {
+      throw new Error('AI returned invalid JSON: ' + aiData.content[0].text.slice(0,100));
+    }
+
+    // Sanitize all AI content to prevent template literal and HTML injection
+    const safe = (str) => (str||'').replace(/`/g,"'").replace(/\$/g,'&#36;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    const safePlain = (str) => (str||'').replace(/`/g,"'").replace(/\\/g,'');
+
+    // Apply sanitization to all AI fields
+    c.headline = safePlain(c.headline) || `${biz} — ${suburb}`;
+    c.subline = safePlain(c.subline) || `Proudly serving ${suburb} and surrounds.`;
+    c.about = safePlain(c.about) || `${biz} is a trusted local business in ${suburb}.`;
+    c.why1_title = safePlain(c.why1_title) || 'Quality you can trust';
+    c.why1_desc = safePlain(c.why1_desc) || 'We take pride in everything we do.';
+    c.why2_title = safePlain(c.why2_title) || 'Local expertise';
+    c.why2_desc = safePlain(c.why2_desc) || 'We know this community inside out.';
+    c.why3_title = safePlain(c.why3_title) || 'Personal service';
+    c.why3_desc = safePlain(c.why3_desc) || 'Every customer is treated like family.';
+    c.testimonial = safePlain(c.testimonial) || `${biz} is absolutely fantastic. Highly recommend!`;
+    c.testimonial_name = safePlain(c.testimonial_name) || `Local customer, ${suburb}`;
+    c.cta = safePlain(c.cta) || `Ready to experience ${biz}?`;
+    c.tagline = safePlain(c.tagline) || `Proudly serving ${suburb}`;
+    if (!Array.isArray(c.services)) c.services = [];
+    c.services = c.services.map(s => ({
+      name: safePlain(s.name)||'Our Service',
+      desc: safePlain(s.desc)||'Quality service tailored to your needs.',
+      icon: s.icon||'⭐',
+      price: safePlain(s.price)||'Contact for pricing',
+    }));
 
     // ── Build the premium HTML ─────────────────────────────────────────────
     const darkBg = theme.name==='bar'||theme.name==='auto';
@@ -191,7 +223,7 @@ Return JSON:
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>${biz} — ${suburb}</title>
-<meta name="description" content="${c.subline}">
+<meta name="description" content="${safe(c.subline)}">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='${encodeURIComponent(theme.accent)}'/><text y='72' x='50' text-anchor='middle' font-size='60' font-family='Georgia' font-weight='900' fill='white'>${biz[0].toUpperCase()}</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=${theme.font.replace(/ /g,'+')}:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -506,31 +538,10 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
     // ── Generate unique ID ─────────────────────────────────────────────────
     const demoId = `demo_${Date.now()}_${Math.random().toString(36).slice(2,8)}`;
 
-    // ── Save to Supabase ───────────────────────────────────────────────────
-    if (SUPABASE_URL && SUPABASE_KEY) {
-      // Save demo HTML
-      await fetch(`${SUPABASE_URL}/rest/v1/demo_sites`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`,
-          'Prefer': 'return=minimal',
-        },
-        body: JSON.stringify({
-          demo_id: demoId,
-          biz_name: biz,
-          suburb,
-          biz_type: bizType||theme.name,
-          html,
-          created_at: new Date().toISOString(),
-          expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(), // 7 days
-        })
-      });
-
-      // Save lead if contact info provided
-      if (email || phone) {
-        await fetch(`${SUPABASE_URL}/rest/v1/demo_leads`, {
+    // ── Save to Supabase (non-blocking) ────────────────────────────────────
+    try {
+      if (SUPABASE_URL && SUPABASE_KEY) {
+        await fetch(`${SUPABASE_URL}/rest/v1/demo_sites`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -543,14 +554,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
             biz_name: biz,
             suburb,
             biz_type: bizType||theme.name,
-            owner_name: ownerName||'',
-            phone: phone||'',
-            email: email||'',
-            description: description||'',
+            html,
             created_at: new Date().toISOString(),
+            expires_at: new Date(Date.now() + 7*24*60*60*1000).toISOString(),
           })
         });
+
+        if (email || phone) {
+          await fetch(`${SUPABASE_URL}/rest/v1/demo_leads`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': SUPABASE_KEY,
+              'Authorization': `Bearer ${SUPABASE_KEY}`,
+              'Prefer': 'return=minimal',
+            },
+            body: JSON.stringify({
+              demo_id: demoId,
+              biz_name: biz,
+              suburb,
+              biz_type: bizType||theme.name,
+              owner_name: ownerName||'',
+              phone: phone||'',
+              email: email||'',
+              description: description||'',
+              created_at: new Date().toISOString(),
+            })
+          });
+        }
       }
+    } catch(dbErr) {
+      console.error('Supabase save error (non-fatal):', dbErr.message);
+      // Continue — return the demo URL even if DB save fails
     }
 
     // Return the demo URL — served by demo-view.js
