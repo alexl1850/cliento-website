@@ -383,14 +383,14 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
           <div class="demo-preview-placeholder">
             <div class="demo-preview-icon">🌐</div>
             <div class="demo-preview-msg">Your website is live and ready</div>
-            <div class="demo-preview-sub">Click "Open my website" to see it — it's real, it's yours, it's live right now</div>
+            <div class="demo-preview-sub">Click "Open my website" to see it now — it's real, published, and live</div>
           </div>
         </div>
         <div class="demo-cta-row">
-          <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn">🌐 Open my website →</a>
-          <a href="https://app.akus.com.au" class="demo-signup-btn">Save it &amp; get all 12 tools →</a>
+          <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn" style="display:none">🌐 Open my website →</a>
+          <a href="https://app.akus.com.au" class="demo-signup-btn">⚡ Keep this website free for 7 days →</a>
         </div>
-        <p class="demo-signup-fine">Sign up free · Keep this website · $50/month after 7-day trial · <strong>30-day money-back guarantee</strong></p>
+        <p class="demo-signup-fine">Sign up free · Keep this exact website · $50/month after 7-day trial · <strong>30-day money-back guarantee</strong></p>
       </div>
     </div>
 
@@ -769,10 +769,33 @@ async function runDemo() {
   bar.style.width = '100%';
   await sleep(300);
 
-  // Redirect to app with params — app auto-builds the site after signup
-  const params = new URLSearchParams({ demo: '1', biz: biz, suburb: suburb, type: bizType });
-  const appUrl = 'https://app.akus.com.au/?' + params.toString();
-  window.location.replace(appUrl);
+  // Call our own demo API (same domain — no CORS)
+  let siteUrl = '';
+  try {
+    const apiRes = await fetch('/api/demo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ biz, suburb, bizType })
+    });
+    const d = await apiRes.json();
+    siteUrl = d.url || '';
+  } catch(e) {
+    console.error('Demo error:', e);
+  }
+
+  // Show result
+  document.getElementById('demoBuilding').style.display = 'none';
+  document.getElementById('demoResult').style.display   = 'block';
+
+  if (siteUrl) {
+    document.getElementById('demoUrl').textContent    = siteUrl;
+    document.getElementById('demoUrlBar').textContent = siteUrl;
+    document.getElementById('demoOpenBtn').href       = siteUrl;
+    document.getElementById('demoOpenBtn').style.display = 'flex';
+  } else {
+    document.getElementById('demoUrl').textContent = 'Sign up free to see your live website!';
+    document.getElementById('demoOpenBtn').style.display = 'none';
+  }
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
