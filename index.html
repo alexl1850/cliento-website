@@ -71,8 +71,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .nav-cta:hover{transform:scale(1.04);box-shadow:0 0 28px var(--skyGlow)}
 
 /* ── HERO ───────────────────────────────────────────────────────────────── */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 80px;background:var(--space);overflow:visible}
-.hero-inner{max-width:900px;width:100%;text-align:center;position:relative;z-index:1}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:100px 24px 100px;background:var(--space);overflow:visible;clip-path:polygon(0 0,100% 0,100% 100%,0 calc(100% - 56px))}
+.hero-inner{max-width:1280px;width:100%;display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero-content{text-align:left}
+.hero-content .hero-sub{margin:0 0 40px;max-width:560px}
+.hero-visual{display:flex;justify-content:center}
+.hero-mock{width:100%;max-width:460px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(56,189,248,0.15);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);animation:mockFloat 6s ease-in-out infinite}
+@keyframes mockFloat{0%,100%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-14px)}}
+.hero-mock-bar{background:#F1F3F4;padding:9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E5E7EB}
+.hero-mock-dots{display:flex;gap:5px}
+.hero-mock-dots span{width:8px;height:8px;border-radius:50%;display:block}
+.hero-mock-dots span:nth-child(1){background:#FF5F56}.hero-mock-dots span:nth-child(2){background:#FFBD2E}.hero-mock-dots span:nth-child(3){background:#27C93F}
+.hero-mock-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:0.68rem;color:#6B7280;border:1px solid #E5E7EB;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hero-mock-hero{position:relative;height:200px;background-size:cover;background-position:center}
+.hero-mock-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,20,40,0.75),rgba(10,20,40,0.25))}
+.hero-mock-hero-text{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:20px;color:#fff}
+.hero-mock-hero-text .hm-h{font-family:'Georgia',serif;font-size:1.15rem;font-weight:700;line-height:1.2;margin-bottom:8px;max-width:220px}
+.hero-mock-hero-text .hm-btn{display:inline-block;background:#38BDF8;color:#03050A;font-size:0.68rem;font-weight:800;padding:7px 14px;border-radius:99px;width:fit-content}
+.hero-mock-body{padding:18px 20px 22px;background:#fff}
+.hero-mock-body .hm-line{height:8px;border-radius:4px;background:#EEF1F5;margin-bottom:8px}
+.hero-mock-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
+.hero-mock-cards div{background:#F7F9FC;border-radius:8px;height:38px}
+.hero-mock-badge{position:absolute;top:-14px;right:-14px;background:#16A34A;color:#fff;font-size:0.68rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(22,163,74,0.4);display:flex;align-items:center;gap:6px}
+@media(max-width:1000px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-visual{display:none}
+}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:99px;padding:8px 18px;font-size:0.78rem;font-weight:700;color:var(--sky);letter-spacing:0.04em;margin-bottom:32px;text-transform:uppercase}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sky);animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(56,189,248,0.4)}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(56,189,248,0)}}
@@ -92,7 +116,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 @keyframes scrolldot{0%,100%{opacity:0;transform:scaleY(0);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
 
 /* ── PAIN ───────────────────────────────────────────────────────────────── */
-.pain{padding:100px 24px;background:linear-gradient(180deg,var(--space) 0%,var(--night) 100%);text-align:center}
+.pain{position:relative;margin-top:-56px;padding:156px 24px 100px;background:var(--night);text-align:center}
 .pain-inner{max-width:800px;margin:0 auto}
 .pain-label{font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sky);margin-bottom:20px}
 .pain-h2{font-size:clamp(2rem,5vw,3.8rem);font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:var(--white);margin-bottom:40px}
@@ -113,7 +137,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
 .tool-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:20px;transition:all 0.2s;cursor:default}
 .tool-card:hover{background:rgba(56,189,248,0.06);border-color:rgba(56,189,248,0.2);transform:translateY(-2px)}
-.tool-icon{font-size:1.6rem;margin-bottom:10px}
+.tool-icon{margin-bottom:10px;color:var(--sky)}
+.tool-icon svg{width:24px;height:24px}
 .tool-name{font-size:0.88rem;font-weight:700;color:var(--cloud);margin-bottom:4px}
 .tool-desc{font-size:0.73rem;color:var(--muted);line-height:1.55}
 .tool-price{margin-top:10px;display:inline-block;font-size:0.65rem;font-weight:700;color:rgba(248,88,88,0.8);text-decoration:line-through;letter-spacing:0.02em}
@@ -205,7 +230,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .demo-result{max-width:640px;margin:0 auto 16px}
 .demo-success{background:rgba(22,163,74,0.08);border:1px solid rgba(22,163,74,0.3);border-radius:20px;padding:24px;text-align:left}
 .demo-success-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.demo-success-icon{font-size:2em;flex-shrink:0}
+.demo-success-icon{flex-shrink:0;color:#16A34A}
 .demo-success-title{font-weight:800;color:#fff;font-size:1em;margin-bottom:4px}
 .demo-success-url{font-size:0.78rem;color:rgba(56,189,248,0.8);word-break:break-all}
 .demo-preview-chrome{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;box-shadow:0 8px 32px rgba(0,0,0,0.3)}
@@ -215,7 +240,8 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .demo-chrome-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:0.72rem;color:#6B7280;border:1px solid #E5E7EB;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-family:monospace}
 .demo-screenshot{width:100%;height:300px;object-fit:cover;object-position:top;display:block}
 .demo-preview-placeholder{height:220px;background:linear-gradient(135deg,#0B1628,#1E3A5F);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px}
-.demo-preview-icon{font-size:3em}
+.demo-preview-icon{color:rgba(255,255,255,0.7)}
+.demo-preview-icon svg{width:44px;height:44px}
 .demo-preview-msg{font-size:1.1rem;font-weight:800;color:#fff;text-align:center}
 .demo-preview-sub{font-size:0.82rem;color:rgba(255,255,255,0.5);text-align:center;line-height:1.6;max-width:320px}
 .demo-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
@@ -248,7 +274,8 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .guarantee{padding:80px 24px;background:#03050A;text-align:center}
 .guarantee-inner{max-width:680px;margin:0 auto}
 .guarantee-badge{display:inline-flex;align-items:center;gap:12px;background:rgba(212,175,55,0.08);border:1px solid rgba(212,175,55,0.3);border-radius:20px;padding:24px 32px;margin-bottom:28px}
-.guarantee-icon{font-size:2.5em;flex-shrink:0}
+.guarantee-icon{flex-shrink:0;color:#D4AF37}
+.guarantee-icon svg{width:38px;height:38px}
 .guarantee-text{text-align:left}
 .guarantee-title{font-size:1.2rem;font-weight:900;color:#D4AF37;margin-bottom:6px}
 .guarantee-body{font-size:0.88rem;color:rgba(255,255,255,0.6);line-height:1.7}
@@ -299,6 +326,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
   </div>
 
   <div class="hero-inner">
+  <div class="hero-content">
     <div class="hero-badge">🇦🇺 Built for Australian business · 30-day money-back guarantee</div>
     <h1 class="hero-h1">
       Watch Akus build your<br>
@@ -369,9 +397,9 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="demo-building" id="demoBuilding" style="display:none">
       <div class="demo-progress-wrap">
         <div class="demo-steps" id="demoSteps">
-          <div class="demo-step active" id="step1">✍️ Writing your content...</div>
-          <div class="demo-step" id="step2">🎨 Designing your layout...</div>
-          <div class="demo-step" id="step3">🚀 Publishing live...</div>
+          <div class="demo-step active" id="step1"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg> Writing your content...</div>
+          <div class="demo-step" id="step2"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.9 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.6-1.5H16a4 4 0 0 0 4-4c0-4.7-3.6-8.4-8-8.4Z"/><circle cx="7.5" cy="10.5" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/></svg> Designing your layout...</div>
+          <div class="demo-step" id="step3"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 2c3 2 5 6 5 10 0 2-1 4-1 4l-4 2-4-2s-1-2-1-4c0-4 2-8 5-10Z"/><circle cx="12" cy="10" r="1.6"/><path d="M9 16l-2 4 3-1M15 16l2 4-3-1"/></svg> Publishing live...</div>
         </div>
         <div class="demo-bar-wrap"><div class="demo-bar" id="demoBar"></div></div>
       </div>
@@ -381,7 +409,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="demo-result" id="demoResult" style="display:none">
       <div class="demo-success">
         <div class="demo-success-top">
-          <span class="demo-success-icon">🎉</span>
+          <span class="demo-success-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.3 2.3 4.7-5"/></svg></span>
           <div>
             <div class="demo-success-title">Your website is live!</div>
             <div class="demo-success-url" id="demoUrl"></div>
@@ -393,13 +421,13 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
             <div class="demo-chrome-url" id="demoUrlBar"></div>
           </div>
           <div class="demo-preview-placeholder">
-            <div class="demo-preview-icon">🌐</div>
+            <div class="demo-preview-icon"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></div>
             <div class="demo-preview-msg">Your website is live and ready</div>
             <div class="demo-preview-sub">Click "Open my website" to see it now — it's real, published, and live</div>
           </div>
         </div>
         <div class="demo-cta-row">
-          <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn" style="display:none">🌐 Open my website →</a>
+          <a id="demoOpenBtn" href="#" target="_blank" class="demo-open-btn" style="display:none"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg> Open my website →</a>
           <a href="https://app.akus.com.au" class="demo-signup-btn">⚡ Keep this website free for 7 days →</a>
         </div>
         <p class="demo-signup-fine">Sign up free · Keep this exact website · $50/month after 7-day trial · <strong>30-day money-back guarantee</strong></p>
@@ -409,6 +437,28 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <p class="hero-fine" id="heroFine">
       <strong>30-day money-back guarantee.</strong> · No credit card for trial. · Cancel any time.
     </p>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-mock">
+      <div class="hero-mock-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live in 60 seconds</div>
+      <div class="hero-mock-bar">
+        <div class="hero-mock-dots"><span></span><span></span><span></span></div>
+        <div class="hero-mock-url">coastalplumbing.com.au</div>
+      </div>
+      <div class="hero-mock-hero" style="background-image:url('https://images.pexels.com/photos/29226620/pexels-photo-29226620.jpeg?auto=compress&cs=tinysrgb&w=800')">
+        <div class="hero-mock-hero-text">
+          <div class="hm-h">Plumbing done right, the first time</div>
+          <span class="hm-btn">Get a Quote</span>
+        </div>
+      </div>
+      <div class="hero-mock-body">
+        <div class="hm-line" style="width:70%"></div>
+        <div class="hm-line" style="width:45%"></div>
+        <div class="hero-mock-cards"><div></div><div></div><div></div></div>
+      </div>
+    </div>
+  </div>
   </div>
 
   <div class="scroll-hint">
@@ -456,73 +506,73 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     </div>
     <div class="tools-grid">
       <div class="tool-card">
-        <div class="tool-icon">🌐</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg></div>
         <div class="tool-name">Real Website</div>
         <div class="tool-desc">A real live website — not a template. Designed, written, and published in 60 seconds.</div>
         <div class="tool-price">Agencies charge $2,500+</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">📱</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
         <div class="tool-name">Social Posts</div>
         <div class="tool-desc">7 ready-to-post captions for Facebook and Instagram. Specific to your business, not generic.</div>
         <div class="tool-price">$500/month from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">📧</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
         <div class="tool-name">Customer Emails</div>
         <div class="tool-desc">Full campaigns written from the owner's voice. Sounds like you sent it yourself.</div>
         <div class="tool-price">$400/month from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">✍️</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg></div>
         <div class="tool-name">SEO Blog Posts</div>
         <div class="tool-desc">800-word posts targeting real keywords people in your suburb are searching for.</div>
         <div class="tool-price">$300–$800 each</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">⭐</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg></div>
         <div class="tool-name">Google Reviews</div>
         <div class="tool-desc">Ask for reviews, respond to good ones, professionally handle bad ones — all in one click.</div>
         <div class="tool-price">$200/month from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">📍</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
         <div class="tool-name">Google Business Posts</div>
         <div class="tool-desc">3 ready-to-paste posts for your Google listing. Local SEO without the agency.</div>
         <div class="tool-price">$150 each from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">🎯</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg></div>
         <div class="tool-name">Ad Copy</div>
         <div class="tool-desc">Google and Facebook ads written in 3 variations — benefit, urgency, social proof.</div>
         <div class="tool-price">$500–$2,000 from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">🗓️</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
         <div class="tool-name">Seasonal Campaigns</div>
         <div class="tool-desc">Complete Christmas, EOFY, and Mother's Day campaign kits — posts, emails, signage, ads.</div>
         <div class="tool-price">$600–$1,200 each</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">🚀</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c3 2 5 6 5 10 0 2-1 4-1 4l-4 2-4-2s-1-2-1-4c0-4 2-8 5-10Z"/><circle cx="12" cy="10" r="1.6"/><path d="M9 16l-2 4 3-1M15 16l2 4-3-1"/></svg></div>
         <div class="tool-name">Win-Back & Referrals</div>
         <div class="tool-desc">Bring back lapsed customers. Build a referral program. Ready in under 2 minutes.</div>
         <div class="tool-price">$400/month from agencies</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">👥</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.3"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2c2.6.4 4.5 2.4 4.5 5.3"/></svg></div>
         <div class="tool-name">Customer CRM</div>
         <div class="tool-desc">Your customer list, last visit tracking, personalised messages for each person.</div>
         <div class="tool-price">$100+/month elsewhere</div>
       </div>
       <div class="tool-card">
-        <div class="tool-icon">💚</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.8-9.4C.7 7.6 2.3 4.5 5.4 4c2-.3 3.7.7 4.6 2.3.5-1.6 2.6-2.6 4.6-2.3 3.1.5 4.7 3.6 3.2 7.1-2.3 4.8-9.8 9.4-9.8 9.4Z"/></svg></div>
         <div class="tool-name">Weekly Health Score</div>
         <div class="tool-desc">A plain English marketing report every Monday morning. Your top 3 actions, nothing else.</div>
         <div class="tool-price">$200/month from consultants</div>
       </div>
       <div class="tool-card" style="background:rgba(56,189,248,0.06);border-color:rgba(56,189,248,0.2)">
-        <div class="tool-icon">🤖</div>
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M4 12h4M16 12h4M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/></svg></div>
         <div class="tool-name">Found on ChatGPT</div>
         <div class="tool-desc">Content structured so AI assistants cite your business when locals ask "best [service] near me."</div>
         <div class="tool-price">Nobody else does this</div>
@@ -608,34 +658,34 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="calc-card">
       <div class="calc-tools" id="calcTools">
         <label class="calc-tool checked">
-          <input type="checkbox" checked onchange="calcUpdate()" data-price="2500"> <span class="calc-tool-label">🌐 Website</span><span class="calc-tool-price">$2,500</span>
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="2500"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg> Website</span><span class="calc-tool-price">$2,500</span>
         </label>
         <label class="calc-tool checked">
-          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label">📱 Social media</span><span class="calc-tool-price">$500/mo</span>
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/></svg> Social media</span><span class="calc-tool-price">$500/mo</span>
         </label>
         <label class="calc-tool checked">
-          <input type="checkbox" checked onchange="calcUpdate()" data-price="4800"> <span class="calc-tool-label">📧 Email marketing</span><span class="calc-tool-price">$400/mo</span>
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="4800"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> Email marketing</span><span class="calc-tool-price">$400/mo</span>
         </label>
         <label class="calc-tool checked">
-          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label">✍️ Blog / SEO</span><span class="calc-tool-price">$500/mo</span>
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="6000"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg> Blog / SEO</span><span class="calc-tool-price">$500/mo</span>
         </label>
         <label class="calc-tool checked">
-          <input type="checkbox" checked onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">⭐ Google reviews</span><span class="calc-tool-price">$200/mo</span>
+          <input type="checkbox" checked onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="vertical-align:-2px"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg> Google reviews</span><span class="calc-tool-price">$200/mo</span>
         </label>
         <label class="calc-tool">
-          <input type="checkbox" onchange="calcUpdate()" data-price="3600"> <span class="calc-tool-label">🎯 Ad copy</span><span class="calc-tool-price">$300/mo</span>
+          <input type="checkbox" onchange="calcUpdate()" data-price="3600"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/></svg> Ad copy</span><span class="calc-tool-price">$300/mo</span>
         </label>
         <label class="calc-tool">
-          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">📍 Google Business</span><span class="calc-tool-price">$200/mo</span>
+          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Google Business</span><span class="calc-tool-price">$200/mo</span>
         </label>
         <label class="calc-tool">
-          <input type="checkbox" onchange="calcUpdate()" data-price="1800"> <span class="calc-tool-label">🚀 Win-back campaigns</span><span class="calc-tool-price">$150/mo</span>
+          <input type="checkbox" onchange="calcUpdate()" data-price="1800"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 2c3 2 5 6 5 10 0 2-1 4-1 4l-4 2-4-2s-1-2-1-4c0-4 2-8 5-10Z"/><circle cx="12" cy="10" r="1.6"/><path d="M9 16l-2 4 3-1M15 16l2 4-3-1"/></svg> Win-back campaigns</span><span class="calc-tool-price">$150/mo</span>
         </label>
         <label class="calc-tool">
-          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label">🗓️ Seasonal campaigns</span><span class="calc-tool-price">$600 each</span>
+          <input type="checkbox" onchange="calcUpdate()" data-price="2400"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg> Seasonal campaigns</span><span class="calc-tool-price">$600 each</span>
         </label>
         <label class="calc-tool">
-          <input type="checkbox" onchange="calcUpdate()" data-price="1200"> <span class="calc-tool-label">💚 Weekly health score</span><span class="calc-tool-price">$100/mo</span>
+          <input type="checkbox" onchange="calcUpdate()" data-price="1200"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 20.5s-7.5-4.6-9.8-9.4C.7 7.6 2.3 4.5 5.4 4c2-.3 3.7.7 4.6 2.3.5-1.6 2.6-2.6 4.6-2.3 3.1.5 4.7 3.6 3.2 7.1-2.3 4.8-9.8 9.4-9.8 9.4Z"/></svg> Weekly health score</span><span class="calc-tool-price">$100/mo</span>
         </label>
       </div>
       <div class="calc-result">
@@ -665,7 +715,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
   <div class="guarantee-inner">
     <p class="eyebrow" style="margin-bottom:24px">Our promise to you</p>
     <div class="guarantee-badge">
-      <div class="guarantee-icon">🏆</div>
+      <div class="guarantee-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5.3"/><path d="m8.5 12.8-1.3 7 4.8-2.6 4.8 2.6-1.3-7"/></svg></div>
       <div class="guarantee-text">
         <div class="guarantee-title">The Akus 30-Day Money-Back Guarantee</div>
         <div class="guarantee-body">

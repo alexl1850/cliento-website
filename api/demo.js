@@ -1,3 +1,50 @@
+// ── Icon set — minimal stroke icons, replaces emoji everywhere on the generated demo site ──
+const ICONS = {
+  phone: `<path d="M6.6 10.8c1.5 3 4 5.4 7 7l2.3-2.3c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1v3.4c0 .6-.4 1-1 1C10.4 21.3 2.7 13.6 2.7 3.5c0-.6.4-1 1-1H7c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.3 0 .7-.2 1L6.6 10.8Z"/>`,
+  mail: `<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>`,
+  mappin: `<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>`,
+  clock: `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>`,
+  star: `<path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/>`,
+  starfilled: `<path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z" fill="currentColor" stroke="none"/>`,
+  check: `<path d="M20 6 9 17l-5-5"/>`,
+  checkcircle: `<circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.3 2.3 4.7-5"/>`,
+  wrench: `<path d="M15 6a4.5 4.5 0 0 0-6 4.9L3 17v4h4l6-6a4.5 4.5 0 0 0 5-7.4l-3.2 3.2-2.6-.9-.9-2.6L14.6 4c-.2 0-.4 0-.6 0Z"/>`,
+  droplet: `<path d="M12 3s6.5 7 6.5 11.5A6.5 6.5 0 0 1 5.5 14.5C5.5 10 12 3 12 3Z"/>`,
+  flame: `<path d="M12 2s5 4.5 5 9.5a5 5 0 0 1-10 0c0-1.4.7-2.6 1.5-3.5.2 1 .8 1.8 1.5 1.8 1 0 1-1.3 1-2.3C11 6 11 4 12 2Z"/>`,
+  shield: `<path d="M12 3 4.5 6v6c0 5 3.4 8 7.5 9 4.1-1 7.5-4 7.5-9V6L12 3Z"/>`,
+  home: `<path d="M4 11.5 12 4l8 7.5"/><path d="M6 10v9a1 1 0 0 0 1 1h4v-6h2v6h4a1 1 0 0 0 1-1v-9"/>`,
+  heart: `<path d="M12 20.5s-7.5-4.6-9.8-9.4C.7 7.6 2.3 4.5 5.4 4c2-.3 3.7.7 4.6 2.3.5-1.6 2.6-2.6 4.6-2.3 3.1.5 4.7 3.6 3.2 7.1-2.3 4.8-9.8 9.4-9.8 9.4Z"/>`,
+  calendar: `<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>`,
+  truck: `<path d="M2 7h11v9H2z"/><path d="M13 10h4l3 3v3h-7z"/><circle cx="6.5" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>`,
+  leaf: `<path d="M5 20C3 12 8 5 20 4c1 10-5 16-15 16Z"/><path d="M6 19c3-4 6-7 12-13"/>`,
+  dollar: `<circle cx="12" cy="12" r="9"/><path d="M12 6.5v11M15 9.2c0-1.2-1.3-2.2-3-2.2s-3 .9-3 2.2 1.3 1.9 3 2.2 3 1 3 2.2-1.3 2.1-3 2.1-3-.8-3-2.1"/>`,
+  users: `<circle cx="9" cy="8" r="3.3"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><circle cx="17" cy="9" r="2.6"/><path d="M15.5 14.2c2.6.4 4.5 2.4 4.5 5.3"/>`,
+  thumbsup: `<path d="M7 11v9H4v-9h3Z"/><path d="M7 11l3.5-7c1.5 0 2.5 1.2 2.2 2.6L12 9h5.5c1.2 0 2 1.1 1.6 2.2l-2 6c-.3.9-1.1 1.5-2 1.5H7"/>`,
+  award: `<circle cx="12" cy="8" r="5.3"/><path d="m8.5 12.8-1.3 7 4.8-2.6 4.8 2.6-1.3-7"/>`,
+  sparkles: `<path d="M12 3v4M12 17v4M4 12h4M16 12h4M6.5 6.5l2 2M15.5 15.5l2 2M17.5 6.5l-2 2M8.5 15.5l-2 2"/>`,
+  coffee: `<path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3.5c0 1-1 1-1 2s1 1 1 2M12 3.5c0 1-1 1-1 2s1 1 1 2"/>`,
+  utensils: `<path d="M6 2v8a2 2 0 0 0 2 2v10M6 2v8M9 2v8M15 2c-1.7 0-3 2-3 5s1.3 5 3 5v10M15 2c1.7 0 3 2 3 5s-1.3 5-3 5"/>`,
+  dumbbell: `<path d="M4 9v6M2 10.5v3M20 9v6M22 10.5v3M7 12h10"/><rect x="5" y="7.5" width="4" height="9" rx="1"/><rect x="15" y="7.5" width="4" height="9" rx="1"/>`,
+  stethoscope: `<path d="M6 3v6a4 4 0 0 0 8 0V3M6 3H4.5M14 3h1.5"/><path d="M10 13v2.5a5.5 5.5 0 0 0 11 0V13.8"/><circle cx="20.5" cy="12.5" r="1.8"/>`,
+  tooth: `<path d="M7 3c-2.5 0-4 2-4 5 0 4 1.5 6 2 10 .3 2 2 2 2.5.3.4-1.3.6-3.3 2.5-3.3s2.1 2 2.5 3.3c.5 1.7 2.2 1.7 2.5-.3.5-4 2-6 2-10 0-3-1.5-5-4-5-1.2 0-2 .6-2.5 1-.5-.4-1.3-1-3.5-1Z"/>`,
+  paw: `<circle cx="6" cy="9" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="18" cy="9" r="2"/><path d="M8 15c0-2 1.8-3.5 4-3.5s4 1.5 4 3.5-1.8 4-4 4-4-2-4-4Z"/>`,
+  palette: `<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.9 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.4-.7-.4-1.1 0-.9.7-1.5 1.6-1.5H16a4 4 0 0 0 4-4c0-4.7-3.6-8.4-8-8.4Z"/><circle cx="7.5" cy="10.5" r="1.2"/><circle cx="10.5" cy="7" r="1.2"/><circle cx="15" cy="7.5" r="1.2"/>`,
+  hammer: `<rect x="13.5" y="2.5" width="4.2" height="7" rx="1" transform="rotate(45 15.6 6)"/><path d="M13 8.5 4.5 17a1.8 1.8 0 0 0 0 2.5l0 0a1.8 1.8 0 0 0 2.5 0L15.5 11"/>`,
+  broom: `<path d="M20 4 10.5 13.5"/><path d="m10.5 13.5-3 6.8L4 22l1.7-3.8 3-6.8Z"/><path d="M9 12.3 12.2 15.5"/>`,
+  car: `<path d="M4 16V11l2-5h12l2 5v5"/><path d="M4 16h16v2a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1v-1H7v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2Z"/><circle cx="7.5" cy="16" r="1.3"/><circle cx="16.5" cy="16" r="1.3"/>`,
+  flower: `<circle cx="12" cy="12" r="2.2"/><circle cx="12" cy="6" r="2.6"/><circle cx="12" cy="18" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="12" r="2.6"/><path d="M12 18v3"/>`,
+  briefcase: `<rect x="3" y="8" width="18" height="12" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/>`,
+  scissors: `<circle cx="6" cy="6" r="2.3"/><circle cx="6" cy="18" r="2.3"/><path d="m20 5-12.5 8M20 19 7.5 11"/>`,
+  messagecircle: `<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/>`,
+  clipboardlist: `<rect x="5" y="4" width="14" height="17" rx="2"/><rect x="9" y="2.5" width="6" height="3" rx="1"/><path d="M8.5 11h.01M8.5 15h.01M11.5 11h5M11.5 15h5"/>`,
+  alert: `<path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17h.01"/>`,
+};
+function svgIcon(name, size = 20) {
+  const path = ICONS[name] || ICONS.sparkles;
+  return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-4px;flex-shrink:0">${path}</svg>`;
+}
+const ICON_VOCAB = Object.keys(ICONS).filter(k => k !== 'starfilled').join(', ');
+
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', 'https://www.akus.com.au');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
@@ -186,15 +233,17 @@ Email: ${email||''}
 Type: ${bizType||theme.name}
 About them: ${description||'A great local business serving '+suburb}
 
+For every "icon" field below, choose the single best-fitting keyword from this exact list (lowercase, no other text): ${ICON_VOCAB}. If nothing fits well, use "sparkles".
+
 Return JSON:
 {
   "headline": "8-12 word hero headline. Powerful. Specific to ${biz} in ${suburb}. Makes you feel something.",
   "subline": "2 vivid sentences. Sensory details. What it feels like to be their customer in ${suburb}.",
   "about": "3 personal sentences about ${ownerName||'the owner'} and ${biz}. Their story, passion, and commitment to ${suburb}.",
   "services": [
-    {"name":"specific service","desc":"2 vivid sentences — benefit + experience","icon":"emoji","price":"realistic e.g. $65 or From $120"},
-    {"name":"...","desc":"...","icon":"...","price":"..."},
-    {"name":"...","desc":"...","icon":"...","price":"..."}
+    {"name":"specific service","desc":"2 vivid sentences — benefit + experience","icon":"keyword from the list above","price":"realistic e.g. $65 or From $120"},
+    {"name":"...","desc":"...","icon":"keyword from the list above","price":"..."},
+    {"name":"...","desc":"...","icon":"keyword from the list above","price":"..."}
   ],
   "why1_title":"First reason customers choose ${biz}","why1_desc":"One sentence",
   "why2_title":"Second reason","why2_desc":"One sentence",
@@ -238,7 +287,7 @@ Return JSON:
     c.services = c.services.map(s => ({
       name: safePlain(s.name)||'Our Service',
       desc: safePlain(s.desc)||'Quality service tailored to your needs.',
-      icon: s.icon||'⭐',
+      icon: s.icon||'sparkles',
       price: safePlain(s.price)||'Contact for pricing',
     }));
 
@@ -321,7 +370,9 @@ a{text-decoration:none;color:inherit}
 .svc:nth-child(2) .svc-name,.svc:nth-child(2) .svc-price{color:#fff}
 .svc:nth-child(2) .svc-desc{color:rgba(255,255,255,0.65)}
 .svc:nth-child(2) .svc-price{color:var(--accent)}
-.svc-icon{font-size:2.8rem;margin-bottom:24px;display:block}
+.svc-icon{margin-bottom:24px;display:block;color:var(--accent)}
+.svc-icon svg{width:34px;height:34px}
+.svc:nth-child(2) .svc-icon{color:#fff}
 .svc-name{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:12px;letter-spacing:-0.02em;line-height:1.2}
 .svc-desc{font-size:0.9rem;color:var(--muted);line-height:1.8;margin-bottom:20px;font-weight:300}
 .svc-price{font-size:0.8rem;font-weight:800;color:var(--accent);letter-spacing:0.06em;text-transform:uppercase}
@@ -346,7 +397,8 @@ a{text-decoration:none;color:inherit}
 .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:64px}
 .rev-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:24px;padding:40px;transition:all 0.3s}
 .rev-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-4px)}
-.rev-stars{font-size:0.9rem;color:#FBBF24;margin-bottom:20px}
+.rev-stars{display:flex;gap:3px;color:#FBBF24;margin-bottom:20px}
+.rev-stars svg{width:15px;height:15px}
 .rev-quote{font-family:var(--serif);font-size:1.15rem;color:#fff;line-height:1.7;font-style:italic;margin-bottom:28px}
 .rev-bar{width:32px;height:2px;background:var(--accent);margin-bottom:20px;border-radius:2px}
 .rev-name{font-size:0.85rem;font-weight:700;color:#fff}
@@ -360,11 +412,12 @@ a{text-decoration:none;color:inherit}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
 .c-list{display:flex;flex-direction:column;gap:20px;margin-top:48px}
 .c-row{display:flex;gap:16px;align-items:center}
-.c-icon{width:52px;height:52px;border-radius:16px;background:${darkBg?'rgba(255,255,255,0.06)':theme.light};display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.c-icon{width:52px;height:52px;border-radius:16px;background:${darkBg?'rgba(255,255,255,0.06)':theme.light};display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;color:var(--accent)}
 .c-label{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:3px}
 .c-val{font-size:1rem;font-weight:700;color:var(--text)}
 .map-box{border-radius:24px;height:380px;background:${darkBg?'rgba(255,255,255,0.04)':theme.light};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
-.map-pin{font-size:3.5rem}
+.map-pin{color:var(--accent)}
+.map-pin svg{width:48px;height:48px}
 .map-biz{font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--text)}
 .map-link{font-size:0.85rem;font-weight:700;color:var(--accent)}
 footer{background:#0F172A;padding:56px 32px 32px}
@@ -419,7 +472,7 @@ footer{background:#0F172A;padding:56px 32px 32px}
       <a href="#services" class="btn btn-ghost">See ${theme.services_title}</a>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><span class="stat-n">5.0 ★</span><span class="stat-l">Google Rating</span></div>
+      <div class="hero-stat"><span class="stat-n">5.0 ${svgIcon('starfilled',26)}</span><span class="stat-l">Google Rating</span></div>
       <div class="hero-stat"><span class="stat-n">100%</span><span class="stat-l">Local & Independent</span></div>
       <div class="hero-stat"><span class="stat-n">${suburb}</span><span class="stat-l">Proudly Serving</span></div>
     </div>
@@ -428,10 +481,10 @@ footer{background:#0F172A;padding:56px 32px 32px}
 
 <div class="trust-strip">
   <div class="trust-inner">
-    <div class="trust-item">✓ Locally owned &amp; operated</div>
-    <div class="trust-item">✓ Proudly serving ${suburb}</div>
-    <div class="trust-item">✓ 5-star rated on Google</div>
-    <div class="trust-item">✓ ${ownerName?'Led by '+ownerName:'Trusted by locals'}</div>
+    <div class="trust-item">${svgIcon('check',14)} Locally owned &amp; operated</div>
+    <div class="trust-item">${svgIcon('check',14)} Proudly serving ${suburb}</div>
+    <div class="trust-item">${svgIcon('check',14)} 5-star rated on Google</div>
+    <div class="trust-item">${svgIcon('check',14)} ${ownerName?'Led by '+ownerName:'Trusted by locals'}</div>
   </div>
 </div>
 
@@ -444,7 +497,7 @@ footer{background:#0F172A;padding:56px 32px 32px}
     <div class="svcs-grid">
       ${(c.services||[]).map(s=>`
       <div class="svc fade-up">
-        <span class="svc-icon">${s.icon}</span>
+        <span class="svc-icon">${svgIcon(s.icon,34)}</span>
         <h3 class="svc-name">${s.name}</h3>
         <p class="svc-desc">${s.desc}</p>
         <div class="svc-price">${s.price}</div>
@@ -492,11 +545,11 @@ footer{background:#0F172A;padding:56px 32px 32px}
         {q:`Professional, warm, and passionate about what they do. ${biz} is a true gem in our community.`,n:'Michelle K.',l:suburb},
       ].map(r=>`
       <div class="rev-card fade-up">
-        <div class="rev-stars">★★★★★</div>
+        <div class="rev-stars">${Array(5).fill(svgIcon('starfilled',15)).join('')}</div>
         <p class="rev-quote">"${r.q}"</p>
         <div class="rev-bar"></div>
         <div class="rev-name">${r.n}</div>
-        <div class="rev-loc">📍 ${r.l}</div>
+        <div class="rev-loc">${svgIcon('mappin',13)} ${r.l}</div>
       </div>`).join('')}
     </div>
   </div>
@@ -518,13 +571,13 @@ footer{background:#0F172A;padding:56px 32px 32px}
         <h2 class="h2">Get in <em>touch</em></h2>
         <p class="body-text">We're based in ${suburb} and love hearing from locals.</p>
         <div class="c-list">
-          <div class="c-row"><div class="c-icon">📍</div><div><div class="c-label">Location</div><div class="c-val">${suburb}, Australia</div></div></div>
-          <div class="c-row"><div class="c-icon">📞</div><div><div class="c-label">Phone</div><div class="c-val">${phoneDisplay}</div></div></div>
-          ${emailDisplay?`<div class="c-row"><div class="c-icon">✉️</div><div><div class="c-label">Email</div><div class="c-val">${emailDisplay}</div></div></div>`:''}
+          <div class="c-row"><div class="c-icon">${svgIcon('mappin',22)}</div><div><div class="c-label">Location</div><div class="c-val">${suburb}, Australia</div></div></div>
+          <div class="c-row"><div class="c-icon">${svgIcon('phone',22)}</div><div><div class="c-label">Phone</div><div class="c-val">${phoneDisplay}</div></div></div>
+          ${emailDisplay?`<div class="c-row"><div class="c-icon">${svgIcon('mail',22)}</div><div><div class="c-label">Email</div><div class="c-val">${emailDisplay}</div></div></div>`:''}
         </div>
       </div>
       <div class="map-box fade-up d2">
-        <div class="map-pin">📍</div>
+        <div class="map-pin">${svgIcon('mappin',48)}</div>
         <div class="map-biz">${biz}</div>
         <p style="font-size:0.85rem;color:var(--muted);text-align:center;padding:0 24px">Located in the heart of ${suburb}</p>
         <a href="https://maps.google.com/?q=${encodeURIComponent(biz+' '+suburb+' Australia')}" target="_blank" class="map-link">Open in Google Maps ↗</a>
