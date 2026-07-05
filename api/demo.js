@@ -627,7 +627,21 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     });
     const deployData = await deployRes.json();
     if(deployData.error) throw new Error(deployData.error.message);
+
+    const projectName = `akus-demo-${slug}`;
     const liveUrl = `https://${deployData.alias?.[0]||deployData.url}`;
+
+    // Disable deployment protection on the new project so it's publicly accessible
+    try {
+      await fetch(`https://api.vercel.com/v9/projects/${projectName}`, {
+        method: 'PATCH',
+        headers: {'Authorization':`Bearer ${VERCEL_TOKEN}`,'Content-Type':'application/json'},
+        body: JSON.stringify({ ssoProtection: null, vercelAuthentication: null })
+      });
+    } catch(e) {
+      console.log('Could not disable protection:', e.message);
+    }
+
     return res.status(200).json({success:true,url:liveUrl,html});
 
   } catch(err){
