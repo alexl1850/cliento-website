@@ -37,6 +37,12 @@ export default async function handler(req, res) {
     const isFlorist    = /florist|flower|bouquet/.test(bizStr);
     const isAuto       = /mechanic|auto|car|tyre/.test(bizStr);
     const isCleaning   = /clean|housekeep/.test(bizStr);
+    const isBathroomReno = /bathroom.*(renov|remodel|fitout)|renovat.*bathroom|ensuite renovation/.test(bizStr);
+    const isCarpenter  = /carpent|joiner|joinery|cabinet.?mak|woodwork/.test(bizStr);
+    const isRemovalist = /removalist|removals|moving compan|furniture removal|interstate mov|house mov/.test(bizStr);
+    const isCarpetClean = /carpet clean|upholstery clean|steam clean|carpet care|rug clean/.test(bizStr);
+    const isNDIS       = /ndis|disability support|disability care|support coordination/.test(bizStr);
+    const isHandyman   = /handyman|handy man|odd jobs|home repair|property maintenance|maintenance man/.test(bizStr);
 
     // ── Theme per business type ────────────────────────────────────────────
     const theme = isButcher ? {
@@ -69,12 +75,24 @@ export default async function handler(req, res) {
     } : isElec ? {
       primary:'#1C1917',accent:'#FBBF24',light:'#FFFBEB',dark:'#0C0A09',bg:'#FAFAF9',text:'#1C1917',muted:'#6B6560',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(12,10,9,0.9) 0%,rgba(251,191,36,0.2) 100%)',name:'electrician',cta:'Get a Free Quote',services_title:'Our Services'
+    } : isBathroomReno ? {
+      primary:'#0C4A6E',accent:'#0891B2',light:'#ECFEFF',dark:'#082F3F',bg:'#F7FDFF',text:'#082F3F',muted:'#0E7490',font:'Inter',
+      heroOverlay:'linear-gradient(135deg,rgba(8,47,63,0.88) 0%,rgba(8,145,178,0.2) 100%)',name:'bathroomreno',cta:'Get a Free Quote',services_title:'Our Services'
+    } : isCarpenter ? {
+      primary:'#451A03',accent:'#B45309',light:'#FFFBEB',dark:'#1C0A00',bg:'#FFFCF7',text:'#1C0A00',muted:'#78350F',font:'Playfair Display',
+      heroOverlay:'linear-gradient(135deg,rgba(28,10,0,0.88) 0%,rgba(180,83,9,0.2) 100%)',name:'carpenter',cta:'Get a Free Quote',services_title:'What We Build'
     } : isBuilder ? {
       primary:'#292524',accent:'#D97706',light:'#FFFBEB',dark:'#1C1917',bg:'#FAFAF9',text:'#1C1917',muted:'#78716C',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(28,25,23,0.88) 0%,rgba(217,119,6,0.2) 100%)',name:'builder',cta:'Get a Free Quote',services_title:'What We Build'
     } : isLandscaper ? {
       primary:'#14532D',accent:'#22C55E',light:'#F0FDF4',dark:'#052E16',bg:'#F7FFF9',text:'#052E16',muted:'#166534',font:'Playfair Display',
       heroOverlay:'linear-gradient(135deg,rgba(5,46,22,0.85) 0%,rgba(34,197,94,0.2) 100%)',name:'landscaper',cta:'Get a Free Quote',services_title:'Our Services'
+    } : isRemovalist ? {
+      primary:'#1E1B4B',accent:'#F97316',light:'#FFF7ED',dark:'#0D0B2A',bg:'#FAFAFA',text:'#0D0B2A',muted:'#4338CA',font:'Inter',
+      heroOverlay:'linear-gradient(135deg,rgba(13,11,42,0.88) 0%,rgba(249,115,22,0.2) 100%)',name:'removalist',cta:'Get a Free Quote',services_title:'Our Services'
+    } : isHandyman ? {
+      primary:'#292524',accent:'#EAB308',light:'#FEFCE8',dark:'#1C1917',bg:'#FAFAF9',text:'#1C1917',muted:'#78716C',font:'Inter',
+      heroOverlay:'linear-gradient(135deg,rgba(28,25,23,0.88) 0%,rgba(234,179,8,0.2) 100%)',name:'handyman',cta:'Get a Free Quote',services_title:'Our Services'
     } : isGym ? {
       primary:'#111827',accent:'#EF4444',light:'#FEF2F2',dark:'#030712',bg:'#F9FAFB',text:'#030712',muted:'#4B5563',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(3,7,18,0.9) 0%,rgba(239,68,68,0.25) 100%)',name:'gym',cta:'Start Training',services_title:'Our Programs'
@@ -87,6 +105,9 @@ export default async function handler(req, res) {
     } : isDentist ? {
       primary:'#1E40AF',accent:'#3B82F6',light:'#EFF6FF',dark:'#0A1628',bg:'#F8FBFF',text:'#0F172A',muted:'#2563EB',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(10,22,40,0.85) 0%,rgba(59,130,246,0.2) 100%)',name:'dentist',cta:'Book an Appointment',services_title:'Our Services'
+    } : isNDIS ? {
+      primary:'#581C87',accent:'#C084FC',light:'#FAF5FF',dark:'#2E1065',bg:'#FDFAFF',text:'#2E1065',muted:'#7E22CE',font:'Inter',
+      heroOverlay:'linear-gradient(135deg,rgba(46,16,101,0.85) 0%,rgba(192,132,252,0.2) 100%)',name:'ndis',cta:'Get in Touch',services_title:'Our Services'
     } : isPet ? {
       primary:'#92400E',accent:'#F59E0B',light:'#FFFBEB',dark:'#1C0A00',bg:'#FFFDF5',text:'#1C0A00',muted:'#B45309',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(28,10,0,0.85) 0%,rgba(245,158,11,0.2) 100%)',name:'pet',cta:'Book a Grooming',services_title:'Our Services'
@@ -99,6 +120,9 @@ export default async function handler(req, res) {
     } : isAuto ? {
       primary:'#111827',accent:'#F59E0B',light:'#FFFBEB',dark:'#030712',bg:'#0F172A',text:'#F8FAFC',muted:'#94A3B8',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(3,7,18,0.92) 0%,rgba(245,158,11,0.2) 100%)',name:'auto',cta:'Book a Service',services_title:'Our Services'
+    } : isCarpetClean ? {
+      primary:'#134E4A',accent:'#2DD4BF',light:'#F0FDFA',dark:'#042F2E',bg:'#F7FFFD',text:'#042F2E',muted:'#0F766E',font:'Inter',
+      heroOverlay:'linear-gradient(135deg,rgba(4,47,46,0.85) 0%,rgba(45,212,191,0.2) 100%)',name:'carpetclean',cta:'Get a Quote',services_title:'Our Services'
     } : isCleaning ? {
       primary:'#0369A1',accent:'#38BDF8',light:'#F0F9FF',dark:'#0C2A40',bg:'#F5FAFE',text:'#0C2A40',muted:'#0EA5E9',font:'Inter',
       heroOverlay:'linear-gradient(135deg,rgba(12,42,64,0.85) 0%,rgba(56,189,248,0.2) 100%)',name:'cleaning',cta:'Get a Quote',services_title:'Our Services'
@@ -132,6 +156,12 @@ export default async function handler(req, res) {
       auto:       ['https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/1409999/pexels-photo-1409999.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/3807386/pexels-photo-3807386.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/2244746/pexels-photo-2244746.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=800'],
       cleaning:   ['https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/6195129/pexels-photo-6195129.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/4108715/pexels-photo-4108715.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/4239007/pexels-photo-4239007.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/6197121/pexels-photo-6197121.jpeg?auto=compress&cs=tinysrgb&w=800'],
       default:    ['https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      bathroomreno: ['https://images.pexels.com/photos/38076239/pexels-photo-38076239.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/19403712/pexels-photo-19403712.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/5493654/pexels-photo-5493654.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/29181495/pexels-photo-29181495.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/29181494/pexels-photo-29181494.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/5493672/pexels-photo-5493672.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      carpenter:  ['https://images.pexels.com/photos/32357250/pexels-photo-32357250.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/20723244/pexels-photo-20723244.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/313776/pexels-photo-313776.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/8817851/pexels-photo-8817851.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/33005110/pexels-photo-33005110.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/5059649/pexels-photo-5059649.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      removalist: ['https://images.pexels.com/photos/20706506/pexels-photo-20706506.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/7464244/pexels-photo-7464244.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/7464712/pexels-photo-7464712.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/7464687/pexels-photo-7464687.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/7464262/pexels-photo-7464262.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/7464369/pexels-photo-7464369.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      carpetclean: ['https://images.pexels.com/photos/6196239/pexels-photo-6196239.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/6195882/pexels-photo-6195882.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/6195879/pexels-photo-6195879.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/6196223/pexels-photo-6196223.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/4401535/pexels-photo-4401535.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/6196579/pexels-photo-6196579.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      ndis:       ['https://images.pexels.com/photos/8415932/pexels-photo-8415932.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/7699072/pexels-photo-7699072.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/8415896/pexels-photo-8415896.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/8777801/pexels-photo-8777801.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/7446636/pexels-photo-7446636.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/7698023/pexels-photo-7698023.jpeg?auto=compress&cs=tinysrgb&w=800'],
+      handyman:   ['https://images.pexels.com/photos/5767799/pexels-photo-5767799.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/17063686/pexels-photo-17063686.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/5691550/pexels-photo-5691550.jpeg?auto=compress&cs=tinysrgb&w=1920','https://images.pexels.com/photos/5768284/pexels-photo-5768284.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg?auto=compress&cs=tinysrgb&w=800','https://images.pexels.com/photos/5767926/pexels-photo-5767926.jpeg?auto=compress&cs=tinysrgb&w=800'],
     };
 
     const lib = images[theme.name] || images.default;
