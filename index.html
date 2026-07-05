@@ -177,6 +177,8 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 .demo-inputs input{padding:13px 16px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;transition:border-color 0.2s;border-radius:10px}
 .demo-inputs input::placeholder{color:rgba(255,255,255,0.35)}
 .demo-inputs input:focus{border-color:rgba(56,189,248,0.6);background:rgba(255,255,255,0.1)}
+#demoDesc::placeholder{color:rgba(255,255,255,0.35)}
+#demoDesc:focus{border-color:rgba(56,189,248,0.6);background:rgba(255,255,255,0.1);outline:none}
 /* Custom dropdown */
 .demo-select-wrap{position:relative;margin-bottom:10px}
 .demo-select-btn{width:100%;padding:13px 16px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;font-family:inherit;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;transition:border-color 0.2s;text-align:left}
@@ -309,9 +311,13 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <!-- INSTANT DEMO -->
     <div class="demo-box" id="demoBox">
       <div class="demo-inputs">
-        <input id="demoBiz" type="text" placeholder="Business name (e.g. Sandy's Café)" maxlength="60" autocomplete="off"/>
+        <input id="demoBiz"    type="text" placeholder="Business name (e.g. Sandy's Café)" maxlength="60" autocomplete="off"/>
         <input id="demoSuburb" type="text" placeholder="Suburb (e.g. Wollongong NSW)" maxlength="40" autocomplete="off"/>
+        <input id="demoOwner" type="text" placeholder="Your name (e.g. Sandy Smith)" maxlength="60" autocomplete="off"/>
+        <input id="demoPhone" type="tel"  placeholder="Phone number" maxlength="20" autocomplete="off"/>
+        <input id="demoEmail" type="email" placeholder="Email address" maxlength="80" autocomplete="off" style="grid-column:1/-1"/>
       </div>
+      <textarea id="demoDesc" placeholder="Tell us a little about your business — what you do, what makes you different (optional)" maxlength="300" rows="2" style="width:100%;padding:13px 16px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-size:0.9rem;font-family:inherit;outline:none;border-radius:10px;resize:none;margin-bottom:10px;line-height:1.5"></textarea>
       <!-- Custom dropdown -->
       <div class="demo-select-wrap" id="demoSelectWrap">
         <button class="demo-select-btn" onclick="toggleDropdown(event)" type="button">
@@ -737,6 +743,10 @@ async function runDemo() {
   const biz     = document.getElementById('demoBiz').value.trim();
   const suburb  = document.getElementById('demoSuburb').value.trim();
   const bizType = document.getElementById('demoBizType').value;
+  const ownerName = document.getElementById('demoOwner')?.value.trim() || '';
+  const phone     = document.getElementById('demoPhone')?.value.trim() || '';
+  const email     = document.getElementById('demoEmail')?.value.trim() || '';
+  const description = document.getElementById('demoDesc')?.value.trim() || '';
 
   if (!biz || !suburb) {
     document.getElementById('demoBiz').focus();
@@ -755,33 +765,33 @@ async function runDemo() {
   const step2 = document.getElementById('step2');
   const step3 = document.getElementById('step3');
 
-  // Animate progress then redirect to app
-  bar.style.width = '20%';
-  await sleep(700);
+  // Animate progress while API builds the site
+  bar.style.width = '15%';
+  await sleep(600);
   step1.classList.add('done'); step1.classList.remove('active');
   step2.classList.add('active');
-  bar.style.width = '55%';
-  await sleep(700);
-  step2.classList.add('done'); step2.classList.remove('active');
-  step3.classList.add('active');
-  bar.style.width = '90%';
-  await sleep(500);
-  bar.style.width = '100%';
-  await sleep(300);
+  bar.style.width = '45%';
 
-  // Call our own demo API (same domain — no CORS)
+  // Call demo API with all lead info
   let siteUrl = '';
   try {
     const apiRes = await fetch('/api/demo', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ biz, suburb, bizType })
+      body: JSON.stringify({ biz, suburb, bizType, ownerName, phone, email, description })
     });
     const d = await apiRes.json();
     siteUrl = d.url || '';
   } catch(e) {
     console.error('Demo error:', e);
   }
+
+  step2.classList.add('done'); step2.classList.remove('active');
+  step3.classList.add('active');
+  bar.style.width = '90%';
+  await sleep(400);
+  bar.style.width = '100%';
+  await sleep(300);
 
   // Show result
   document.getElementById('demoBuilding').style.display = 'none';
