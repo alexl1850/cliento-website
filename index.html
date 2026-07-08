@@ -76,23 +76,46 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-content{text-align:left}
 .hero-content .hero-sub{margin:0 0 40px;max-width:560px}
 .hero-visual{display:flex;justify-content:center}
-.hero-mock{width:100%;max-width:460px;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(56,189,248,0.15);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);animation:mockFloat 6s ease-in-out infinite}
+.hero-mock-wrap{position:relative;width:100%;max-width:460px}
+.hero-mock{width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(56,189,248,0.15);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);animation:mockFloat 6s ease-in-out infinite}
 @keyframes mockFloat{0%,100%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-14px)}}
 .hero-mock-bar{background:#F1F3F4;padding:9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E5E7EB}
 .hero-mock-dots{display:flex;gap:5px}
 .hero-mock-dots span{width:8px;height:8px;border-radius:50%;display:block}
 .hero-mock-dots span:nth-child(1){background:#FF5F56}.hero-mock-dots span:nth-child(2){background:#FFBD2E}.hero-mock-dots span:nth-child(3){background:#27C93F}
 .hero-mock-url{flex:1;background:#fff;border-radius:5px;padding:4px 10px;font-size:0.68rem;color:#6B7280;border:1px solid #E5E7EB;font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hero-mock-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:#fff;border-bottom:1px solid #F1F3F4}
+.hero-mock-nav-logo{font-size:0.78rem;font-weight:900;color:#111827;letter-spacing:-0.02em;white-space:nowrap}
+.hero-mock-nav-logo span{color:#0284C7}
+.hero-mock-nav-links{display:flex;gap:8px}
+.hero-mock-nav-links span{width:18px;height:6px;border-radius:3px;background:#E5E7EB;display:block}
+.hero-mock-nav-cta{font-size:0.62rem;font-weight:800;color:#fff;background:#0B1628;padding:6px 12px;border-radius:99px;white-space:nowrap}
 .hero-mock-hero{position:relative;height:200px;background-size:cover;background-position:center}
 .hero-mock-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,20,40,0.75),rgba(10,20,40,0.25))}
 .hero-mock-hero-text{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:20px;color:#fff}
 .hero-mock-hero-text .hm-h{font-family:'Georgia',serif;font-size:1.15rem;font-weight:700;line-height:1.2;margin-bottom:8px;max-width:220px}
 .hero-mock-hero-text .hm-btn{display:inline-block;background:#38BDF8;color:#03050A;font-size:0.68rem;font-weight:800;padding:7px 14px;border-radius:99px;width:fit-content}
-.hero-mock-body{padding:18px 20px 22px;background:#fff}
+.hero-mock-rating{position:absolute;left:16px;bottom:-13px;z-index:2;background:#fff;border-radius:10px;padding:6px 10px;font-size:0.66rem;font-weight:700;color:#111827;box-shadow:0 8px 20px rgba(0,0,0,0.22);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.hero-mock-rating .stars{color:#F59E0B;letter-spacing:-1px}
+.hero-mock-body{padding:20px 20px 0}
 .hero-mock-body .hm-line{height:8px;border-radius:4px;background:#EEF1F5;margin-bottom:8px}
-.hero-mock-cards{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
-.hero-mock-cards div{background:#F7F9FC;border-radius:8px;height:38px}
-.hero-mock-badge{position:absolute;top:-14px;right:-14px;background:#16A34A;color:#fff;font-size:0.68rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(22,163,74,0.4);display:flex;align-items:center;gap:6px}
+.hero-mock-services{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
+.hero-mock-service{background:#F7F9FC;border-radius:10px;padding:10px 6px;text-align:center}
+.hero-mock-service .hms-icon{font-size:1.05rem;display:block;margin-bottom:4px;line-height:1}
+.hero-mock-service .hms-title{font-size:0.58rem;font-weight:700;color:#374151;display:block;line-height:1.3}
+.hero-mock-testi{margin-top:14px;padding:12px 14px;background:linear-gradient(135deg,#F0F9FF,#F7F9FC);border-radius:10px;border:1px solid #E0F2FE}
+.hero-mock-testi .hmt-stars{color:#F59E0B;font-size:0.7rem;letter-spacing:1px;margin-bottom:4px}
+.hero-mock-testi .hmt-quote{font-size:0.66rem;color:#374151;line-height:1.5;font-style:italic;margin-bottom:4px}
+.hero-mock-testi .hmt-attr{font-size:0.58rem;color:#9CA3AF;font-weight:600}
+.hero-mock-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;margin-top:16px;background:#F7F9FC;border-top:1px solid #F1F3F4}
+.hero-mock-footer span{font-size:0.58rem;color:#9CA3AF;font-weight:600}
+.hero-mock-footer-dots{display:flex;gap:5px}
+.hero-mock-footer-dots i{width:13px;height:13px;border-radius:50%;background:#E5E7EB;display:block;font-style:normal}
+.hero-mock-badge{position:absolute;top:-14px;right:-14px;z-index:3;background:#16A34A;color:#fff;font-size:0.68rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(22,163,74,0.4);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hero-mock-badge-2{position:absolute;bottom:-14px;left:-16px;z-index:3;background:#0B1628;border:1px solid rgba(56,189,248,0.35);color:#7DD3FC;font-size:0.66rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 10px 28px rgba(0,0,0,0.45);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hero-mock-whatsapp{position:absolute;bottom:44px;right:-16px;z-index:3;width:50px;height:50px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(37,211,102,0.5);animation:waPulse 2.6s ease-in-out infinite}
+.hero-mock-whatsapp svg{width:24px;height:24px}
+@keyframes waPulse{0%,100%{box-shadow:0 10px 28px rgba(37,211,102,0.5)}50%{box-shadow:0 10px 28px rgba(37,211,102,0.5),0 0 0 8px rgba(37,211,102,0.15)}}
 @media(max-width:1000px){
   .hero-inner{grid-template-columns:1fr}
   .hero-visual{display:none}
@@ -440,23 +463,46 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
   </div>
 
   <div class="hero-visual">
+    <div class="hero-mock-wrap">
     <div class="hero-mock">
-      <div class="hero-mock-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live in 60 seconds</div>
       <div class="hero-mock-bar">
         <div class="hero-mock-dots"><span></span><span></span><span></span></div>
         <div class="hero-mock-url">coastalplumbing.com.au</div>
+      </div>
+      <div class="hero-mock-nav">
+        <div class="hero-mock-nav-logo">Coastal<span>Plumbing</span></div>
+        <div class="hero-mock-nav-links"><span></span><span></span><span></span></div>
+        <div class="hero-mock-nav-cta">Book Now</div>
       </div>
       <div class="hero-mock-hero" style="background-image:url('https://images.pexels.com/photos/29226620/pexels-photo-29226620.jpeg?auto=compress&cs=tinysrgb&w=800')">
         <div class="hero-mock-hero-text">
           <div class="hm-h">Plumbing done right, the first time</div>
           <span class="hm-btn">Get a Quote</span>
         </div>
+        <div class="hero-mock-rating"><span class="stars">★★★★★</span> 4.9 · 128 reviews</div>
       </div>
       <div class="hero-mock-body">
         <div class="hm-line" style="width:70%"></div>
         <div class="hm-line" style="width:45%"></div>
-        <div class="hero-mock-cards"><div></div><div></div><div></div></div>
+        <div class="hero-mock-services">
+          <div class="hero-mock-service"><span class="hms-icon">🔧</span><span class="hms-title">Emergency Repairs</span></div>
+          <div class="hero-mock-service"><span class="hms-icon">🚿</span><span class="hms-title">Bathroom Reno</span></div>
+          <div class="hero-mock-service"><span class="hms-icon">💧</span><span class="hms-title">Hot Water</span></div>
+        </div>
+        <div class="hero-mock-testi">
+          <div class="hmt-stars">★★★★★</div>
+          <div class="hmt-quote">"On time, fair price, fixed it first go."</div>
+          <div class="hmt-attr">— Jamie, Corrimal NSW</div>
+        </div>
       </div>
+      <div class="hero-mock-footer">
+        <span>© Coastal Plumbing</span>
+        <span class="hero-mock-footer-dots"><i></i><i></i><i></i></span>
+      </div>
+    </div>
+    <div class="hero-mock-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live in 60 seconds</div>
+    <div class="hero-mock-badge-2">🔍 Found on Google &amp; ChatGPT</div>
+    <div class="hero-mock-whatsapp"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
     </div>
   </div>
   </div>
@@ -526,7 +572,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
       <div class="tool-card">
         <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1-4L16 5l3 3L8 19l-4 1Z"/><path d="M14 7l3 3"/></svg></div>
         <div class="tool-name">SEO Blog Posts</div>
-        <div class="tool-desc">800-word posts targeting real keywords people in your suburb are searching for.</div>
+        <div class="tool-desc">800-word posts targeting real keywords people in your suburb are searching for — published straight to your live site automatically.</div>
         <div class="tool-price">$300–$800 each</div>
       </div>
       <div class="tool-card">
@@ -564,6 +610,36 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
         <div class="tool-name">Customer CRM</div>
         <div class="tool-desc">Your customer list, last visit tracking, personalised messages for each person.</div>
         <div class="tool-price">$100+/month elsewhere</div>
+      </div>
+      <div class="tool-card" style="background:rgba(56,189,248,0.06);border-color:rgba(56,189,248,0.2)">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg></div>
+        <div class="tool-name">Instant Job Estimator</div>
+        <div class="tool-desc">Visitors get an AI ballpark price in seconds right on your site — every enquiry lands straight in your CRM as a lead.</div>
+        <div class="tool-price">$150+/month from lead-gen tools</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><path d="m9 10 2 2 4-4"/></svg></div>
+        <div class="tool-name">Local SEO &amp; Citations</div>
+        <div class="tool-desc">Every site ships with schema markup, sitemaps, and a directory citation builder so Google can actually find you.</div>
+        <div class="tool-price">$400+/month from SEO agencies</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 15l6-6"/><path d="M8 12 5.5 14.5a3 3 0 0 0 4 4L12 16"/><path d="M16 12l2.5-2.5a3 3 0 0 0-4-4L12 8"/></svg></div>
+        <div class="tool-name">Bring Your Own Domain</div>
+        <div class="tool-desc">Already own yourbusiness.com.au? Connect it in a few clicks — we handle the DNS and propagation check.</div>
+        <div class="tool-price">$200+ setup from agencies</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
+        <div class="tool-name">WhatsApp Chat Button</div>
+        <div class="tool-desc">A click-to-chat button on every page — customers message you directly, no missed calls.</div>
+        <div class="tool-price">$30–$50/month from chat plugins</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        <div class="tool-name">Works With Shopify Too</div>
+        <div class="tool-desc">Local SEO, speed checks, and a WhatsApp button for your Shopify store — same toolkit, e-commerce ready.</div>
+        <div class="tool-price">$100+/month from Shopify apps</div>
       </div>
       <div class="tool-card">
         <div class="tool-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5s-7.5-4.6-9.8-9.4C.7 7.6 2.3 4.5 5.4 4c2-.3 3.7.7 4.6 2.3.5-1.6 2.6-2.6 4.6-2.3 3.1.5 4.7 3.6 3.2 7.1-2.3 4.8-9.8 9.4-9.8 9.4Z"/></svg></div>
@@ -686,6 +762,12 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
         </label>
         <label class="calc-tool">
           <input type="checkbox" onchange="calcUpdate()" data-price="1200"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 20.5s-7.5-4.6-9.8-9.4C.7 7.6 2.3 4.5 5.4 4c2-.3 3.7.7 4.6 2.3.5-1.6 2.6-2.6 4.6-2.3 3.1.5 4.7 3.6 3.2 7.1-2.3 4.8-9.8 9.4-9.8 9.4Z"/></svg> Weekly health score</span><span class="calc-tool-price">$100/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="4800"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><path d="M12 21s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z"/><path d="m9 10 2 2 4-4"/></svg> Local SEO / citations</span><span class="calc-tool-price">$400/mo</span>
+        </label>
+        <label class="calc-tool">
+          <input type="checkbox" onchange="calcUpdate()" data-price="1800"> <span class="calc-tool-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h3"/></svg> Job estimator / lead-gen</span><span class="calc-tool-price">$150/mo</span>
         </label>
       </div>
       <div class="calc-result">
