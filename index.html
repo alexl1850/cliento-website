@@ -77,7 +77,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-content .hero-sub{margin:0 0 40px;max-width:560px}
 .hero-visual{display:flex;justify-content:center}
 .hero-mock-wrap{position:relative;width:100%;max-width:460px}
-.hero-mock{width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.45),0 0 0 1px rgba(56,189,248,0.15);animation:mockFloat 7s ease-in-out infinite}
+.hero-mock-glow{position:absolute;inset:-40px;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(56,189,248,0.22) 0%,transparent 70%);pointer-events:none;z-index:0;filter:blur(4px)}
+.hero-mock{position:relative;z-index:1;width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(3,5,10,0.55),0 8px 24px rgba(3,5,10,0.3),0 0 0 1px rgba(56,189,248,0.2);animation:mockFloat 7s ease-in-out infinite}
 @keyframes mockFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero-mock-bar{background:#F1F3F4;padding:9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E5E7EB}
 .hero-mock-dots{display:flex;gap:5px}
@@ -95,8 +96,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-mock-hero-text{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:20px;color:#fff}
 .hero-mock-hero-text .hm-h{font-family:'Inter',system-ui,sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px;max-width:220px}
 .hero-mock-hero-text .hm-btn{display:inline-block;background:#38BDF8;color:#03050A;font-size:0.68rem;font-weight:800;padding:7px 14px;border-radius:99px;width:fit-content}
-.hero-mock-rating{position:absolute;left:16px;bottom:-13px;z-index:2;background:#fff;border-radius:10px;padding:6px 10px;font-size:0.66rem;font-weight:700;color:#111827;box-shadow:0 8px 20px rgba(0,0,0,0.22);display:flex;align-items:center;gap:5px;white-space:nowrap}
-.hero-mock-rating .stars{color:#F59E0B;letter-spacing:-1px}
+.hero-mock-rating{position:absolute;left:16px;bottom:-13px;z-index:2;background:#fff;border-radius:10px;padding:6px 10px;font-size:0.66rem;font-weight:700;color:#111827;box-shadow:0 8px 20px rgba(0,0,0,0.22);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hero-mock-rating .stars{display:inline-flex;align-items:center;gap:1px;color:#F59E0B;flex-shrink:0}
+.hero-mock-rating .stars svg{width:10px;height:10px;display:block}
 .hero-mock-body{padding:20px 20px 0}
 .hero-mock-body .hm-line{height:8px;border-radius:4px;background:#EEF1F5;margin-bottom:8px}
 .hero-mock-services{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px}
@@ -104,8 +106,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-mock-service .hms-icon{font-size:1.05rem;display:block;margin-bottom:4px;line-height:1}
 .hero-mock-service .hms-title{font-size:0.58rem;font-weight:700;color:#374151;display:block;line-height:1.3}
 .hero-mock-testi{margin-top:14px;padding:12px 14px;background:linear-gradient(135deg,#F0F9FF,#F7F9FC);border-radius:10px;border:1px solid #E0F2FE}
-.hero-mock-testi .hmt-stars{color:#F59E0B;font-size:0.7rem;letter-spacing:1px;margin-bottom:4px}
-.hero-mock-testi .hmt-quote{font-size:0.66rem;color:#374151;line-height:1.5;font-style:italic;margin-bottom:4px}
+.hero-mock-testi .hmt-stars{display:flex;align-items:center;gap:1px;color:#F59E0B;margin-bottom:6px}
+.hero-mock-testi .hmt-stars svg{width:11px;height:11px;display:block}
+.hero-mock-testi .hmt-quote{font-size:0.66rem;color:#374151;line-height:1.5;font-style:italic;margin-bottom:8px}
+.hmt-attr-row{display:flex;align-items:center;gap:6px}
+.hmt-avatar{width:16px;height:16px;border-radius:50%;background:#0284C7;color:#fff;font-size:0.55rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .hero-mock-testi .hmt-attr{font-size:0.58rem;color:#9CA3AF;font-weight:600}
 .hero-mock-footer{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;margin-top:16px;background:#F7F9FC;border-top:1px solid #F1F3F4}
 .hero-mock-footer span{font-size:0.58rem;color:#9CA3AF;font-weight:600}
@@ -465,6 +470,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
 
   <div class="hero-visual">
     <div class="hero-mock-wrap">
+    <div class="hero-mock-glow"></div>
     <div class="hero-mock">
       <div class="hero-mock-bar">
         <div class="hero-mock-dots"><span></span><span></span><span></span></div>
@@ -480,7 +486,7 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
           <div class="hm-h">Plumbing done right, the first time</div>
           <span class="hm-btn">Get a Quote</span>
         </div>
-        <div class="hero-mock-rating"><span class="stars">★★★★★</span> 4.9 · 128 reviews</div>
+        <div class="hero-mock-rating"><span class="stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg></span> 4.9 · 128 reviews</div>
       </div>
       <div class="hero-mock-body">
         <div class="hm-line" style="width:70%"></div>
@@ -491,9 +497,9 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
           <div class="hero-mock-service"><span class="hms-icon">💧</span><span class="hms-title">Hot Water</span></div>
         </div>
         <div class="hero-mock-testi">
-          <div class="hmt-stars">★★★★★</div>
+          <div class="hmt-stars"><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 3 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3L3 9.5l6.4-.6L12 3Z"/></svg></div>
           <div class="hmt-quote">"On time, fair price, fixed it first go."</div>
-          <div class="hmt-attr">— Jamie, Corrimal NSW</div>
+          <div class="hmt-attr-row"><span class="hmt-avatar">J</span><span class="hmt-attr">Jamie, Corrimal NSW</span></div>
         </div>
       </div>
       <div class="hero-mock-footer">
