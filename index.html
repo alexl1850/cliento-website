@@ -1006,6 +1006,17 @@ reveals.forEach(el => {
   el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
   obs.observe(el);
 });
+
+// Forward a referral code through to signup — a shared link like
+// akus.com.au?ref=CODE should still credit the referrer even though the
+// visitor lands here first, not directly on the app.
+(function () {
+  var ref = new URLSearchParams(location.search).get('ref');
+  if (!ref) return;
+  var target = 'https://app.akus.com.au?ref=' + encodeURIComponent(ref);
+  document.querySelectorAll('a[href^="https://app.akus.com.au"]').forEach(function (a) { a.href = target; });
+  document.querySelectorAll('.nav-cta').forEach(function (btn) { btn.onclick = function () { location.href = target; }; });
+})();
 </script>
 </body>
 </html>
