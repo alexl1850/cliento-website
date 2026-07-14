@@ -77,8 +77,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-content .hero-sub{margin:0 0 40px;max-width:560px}
 .hero-visual{display:flex;justify-content:center}
 .hero-mock-wrap{position:relative;width:100%;max-width:460px}
-.hero-mock{width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,0.5),0 0 0 1px rgba(56,189,248,0.15);transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);animation:mockFloat 6s ease-in-out infinite}
-@keyframes mockFloat{0%,100%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(0)}50%{transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-14px)}}
+.hero-mock{width:100%;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.45),0 0 0 1px rgba(56,189,248,0.15);animation:mockFloat 7s ease-in-out infinite}
+@keyframes mockFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero-mock-bar{background:#F1F3F4;padding:9px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #E5E7EB}
 .hero-mock-dots{display:flex;gap:5px}
 .hero-mock-dots span{width:8px;height:8px;border-radius:50%;display:block}
@@ -93,7 +93,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-mock-hero{position:relative;height:200px;background-size:cover;background-position:center}
 .hero-mock-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,20,40,0.75),rgba(10,20,40,0.25))}
 .hero-mock-hero-text{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;justify-content:center;padding:20px;color:#fff}
-.hero-mock-hero-text .hm-h{font-family:'Georgia',serif;font-size:1.15rem;font-weight:700;line-height:1.2;margin-bottom:8px;max-width:220px}
+.hero-mock-hero-text .hm-h{font-family:'Inter',system-ui,sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px;max-width:220px}
 .hero-mock-hero-text .hm-btn{display:inline-block;background:#38BDF8;color:#03050A;font-size:0.68rem;font-weight:800;padding:7px 14px;border-radius:99px;width:fit-content}
 .hero-mock-rating{position:absolute;left:16px;bottom:-13px;z-index:2;background:#fff;border-radius:10px;padding:6px 10px;font-size:0.66rem;font-weight:700;color:#111827;box-shadow:0 8px 20px rgba(0,0,0,0.22);display:flex;align-items:center;gap:5px;white-space:nowrap}
 .hero-mock-rating .stars{color:#F59E0B;letter-spacing:-1px}
@@ -111,14 +111,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 32px;height:64px;d
 .hero-mock-footer span{font-size:0.58rem;color:#9CA3AF;font-weight:600}
 .hero-mock-footer-dots{display:flex;gap:5px}
 .hero-mock-footer-dots i{width:13px;height:13px;border-radius:50%;background:#E5E7EB;display:block;font-style:normal}
-.hero-mock-badge{position:absolute;top:-14px;right:-14px;z-index:3;background:#16A34A;color:#fff;font-size:0.68rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(22,163,74,0.4);display:flex;align-items:center;gap:6px;white-space:nowrap}
+.hero-mock-badge{position:absolute;top:-14px;right:-14px;z-index:3;background:var(--sky);color:#03050A;font-size:0.68rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 8px 24px rgba(56,189,248,0.4);display:flex;align-items:center;gap:6px;white-space:nowrap}
 .hero-mock-badge-2{position:absolute;bottom:-14px;left:-16px;z-index:3;background:#0B1628;border:1px solid rgba(56,189,248,0.35);color:#7DD3FC;font-size:0.66rem;font-weight:800;padding:8px 14px;border-radius:99px;box-shadow:0 10px 28px rgba(0,0,0,0.45);display:flex;align-items:center;gap:6px;white-space:nowrap}
-.hero-mock-whatsapp{position:absolute;bottom:44px;right:-16px;z-index:3;width:50px;height:50px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 28px rgba(37,211,102,0.5);animation:waPulse 2.6s ease-in-out infinite}
-.hero-mock-whatsapp svg{width:24px;height:24px}
-@keyframes waPulse{0%,100%{box-shadow:0 10px 28px rgba(37,211,102,0.5)}50%{box-shadow:0 10px 28px rgba(37,211,102,0.5),0 0 0 8px rgba(37,211,102,0.15)}}
 @media(max-width:1000px){
   .hero-inner{grid-template-columns:1fr}
-  .hero-visual{display:none}
+  .hero-visual{margin-top:48px}
+  .hero-mock-wrap{max-width:340px}
+}
+@media(max-width:640px){
+  .hero-mock-badge,.hero-mock-badge-2{display:none}
 }
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(56,189,248,0.08);border:1px solid rgba(56,189,248,0.2);border-radius:99px;padding:8px 18px;font-size:0.78rem;font-weight:700;color:var(--sky);letter-spacing:0.04em;margin-bottom:32px;text-transform:uppercase}
 .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sky);animation:pulse 2s ease-in-out infinite}
@@ -467,10 +468,10 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
     <div class="hero-mock">
       <div class="hero-mock-bar">
         <div class="hero-mock-dots"><span></span><span></span><span></span></div>
-        <div class="hero-mock-url">coastalplumbing.com.au</div>
+        <div class="hero-mock-url">pipedreamplumbing.com.au</div>
       </div>
       <div class="hero-mock-nav">
-        <div class="hero-mock-nav-logo">Coastal<span>Plumbing</span></div>
+        <div class="hero-mock-nav-logo">Pipe<span>Dream</span></div>
         <div class="hero-mock-nav-links"><span></span><span></span><span></span></div>
         <div class="hero-mock-nav-cta">Book Now</div>
       </div>
@@ -496,13 +497,12 @@ footer{padding:40px 32px;background:var(--space);border-top:1px solid rgba(255,2
         </div>
       </div>
       <div class="hero-mock-footer">
-        <span>© Coastal Plumbing</span>
+        <span>© Pipe Dream Plumbing</span>
         <span class="hero-mock-footer-dots"><i></i><i></i><i></i></span>
       </div>
     </div>
     <div class="hero-mock-badge"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Live in 60 seconds</div>
     <div class="hero-mock-badge-2">🔍 Found on Google &amp; ChatGPT</div>
-    <div class="hero-mock-whatsapp"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l1.5-5A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
     </div>
   </div>
   </div>
